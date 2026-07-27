@@ -1,0 +1,1921 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width,initial-scale=1.0">\
+<title>PrepOS v3 \'97 Complete DSA Tracker</title>\
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">\
+<style>\
+*,*::before,*::after\{box-sizing:border-box;margin:0;padding:0\}\
+:root\{\
+  --bg:#080d1a;--s1:#0e1628;--s2:#141e35;--s3:#1a2540;--s4:#1f2d4a;\
+  --bd:#1e2d4d;--bd2:#2a3d60;\
+  --tx:#e2e8f0;--tx2:#94a3b8;--tx3:#4a5a7a;\
+  --ind:#6366f1;--ind2:#4f46e5;--indbg:rgba(99,102,241,.1);--indbr:rgba(99,102,241,.25);\
+  --grn:#22c55e;--grnbg:rgba(34,197,94,.1);--grnbr:rgba(34,197,94,.25);\
+  --amb:#f59e0b;--ambbg:rgba(245,158,11,.1);--ambbr:rgba(245,158,11,.25);\
+  --red:#ef4444;--redbg:rgba(239,68,68,.1);--redbr:rgba(239,68,68,.25);\
+  --pur:#a78bfa;--purbg:rgba(167,139,250,.1);--purbr:rgba(167,139,250,.25);\
+  --r:8px;--r2:12px;--r3:6px;--mono:'JetBrains Mono',monospace;\
+\}\
+html\{scroll-behavior:smooth\}\
+body\{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;min-height:100vh\}\
+a\{color:var(--ind);text-decoration:none\}a:hover\{text-decoration:underline\}\
+button\{cursor:pointer;font-family:inherit\}input,textarea,select\{font-family:inherit;font-size:13px\}\
+::-webkit-scrollbar\{width:4px;height:4px\}::-webkit-scrollbar-thumb\{background:var(--s4);border-radius:2px\}\
+\
+/* TOPBAR */\
+.tb\{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;background:rgba(8,13,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 16px;gap:10px\}\
+.tb-logo\{font-size:15px;font-weight:700;color:var(--tx);letter-spacing:-.02em;white-space:nowrap;flex-shrink:0\}\
+.tb-logo span\{color:var(--ind)\}.tb-logo sup\{font-size:9px;color:var(--amb);font-weight:600;vertical-align:super\}\
+.tb-nav\{display:flex;gap:2px;flex:1;overflow-x:auto\}.tb-nav::-webkit-scrollbar\{display:none\}\
+.tnav\{background:none;border:none;padding:5px 10px;border-radius:var(--r3);font-size:12px;color:var(--tx2);white-space:nowrap;transition:all .15s\}\
+.tnav:hover\{background:var(--s2);color:var(--tx)\}.tnav.active\{background:var(--indbg);color:var(--ind)\}\
+.tb-right\{display:flex;align-items:center;gap:8px;flex-shrink:0\}\
+.streak-pill\{display:flex;align-items:center;gap:5px;background:var(--grnbg);border:1px solid var(--grnbr);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:600;color:var(--grn);white-space:nowrap\}\
+.flame\{display:inline-block\}.flame.pulse\{animation:flm 1.4s ease-in-out infinite\}\
+@keyframes flm\{0%,100%\{transform:scale(1)\}50%\{transform:scale(1.3)\}\}\
+.tb-date\{font-size:11px;color:var(--tx3);font-family:var(--mono)\}\
+\
+/* LAYOUT */\
+.shell\{display:flex;margin-top:52px;min-height:calc(100vh - 52px)\}\
+.sidebar\{width:220px;flex-shrink:0;background:var(--s1);border-right:1px solid var(--bd);padding:10px 8px;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto\}\
+.main\{flex:1;padding:22px 26px;max-width:1000px\}\
+\
+/* SIDEBAR */\
+.sl\{font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;padding:7px 8px 3px\}\
+.si\{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:var(--r);font-size:12px;color:var(--tx2);background:none;border:none;width:100%;text-align:left;transition:all .15s\}\
+.si:hover\{background:var(--s2);color:var(--tx)\}.si.active\{background:var(--indbg);color:var(--ind)\}\
+.si-ic\{font-size:12px;width:15px;text-align:center;flex-shrink:0\}\
+.si-bar\{margin-left:auto;width:30px;height:3px;background:var(--s4);border-radius:2px;overflow:hidden;flex-shrink:0\}\
+.si-bar-f\{height:100%;background:var(--grn);border-radius:2px;transition:width .3s\}\
+.si-bdg\{margin-left:auto;font-size:10px;padding:1px 5px;border-radius:7px;font-weight:600;font-family:var(--mono)\}\
+.red-bdg\{background:var(--redbg);color:var(--red)\}\
+.amb-bdg\{background:var(--ambbg);color:var(--amb)\}\
+\
+/* PAGES */\
+.page\{display:none\}.page.active\{display:block\}\
+.ph\{margin-bottom:20px\}.ph h1\{font-size:20px;font-weight:700;letter-spacing:-.02em\}.ph p\{font-size:13px;color:var(--tx2);margin-top:3px\}\
+\
+/* CARDS */\
+.card\{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:15px 17px;margin-bottom:11px\}\
+.card-t\{font-size:13px;font-weight:600;margin-bottom:11px;display:flex;align-items:center;gap:7px\}\
+.g2\{display:grid;grid-template-columns:1fr 1fr;gap:11px\}\
+.g3\{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px\}\
+\
+/* STATS */\
+.stats\{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:16px\}\
+.stat\{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:13px 15px\}\
+.sv\{font-size:24px;font-weight:700;font-family:var(--mono);line-height:1\}\
+.sl2\{font-size:10px;color:var(--tx3);margin-top:4px;text-transform:uppercase;letter-spacing:.05em\}\
+.ss\{font-size:11px;color:var(--tx2);margin-top:2px\}\
+\
+/* CALENDAR */\
+.cal-wrap\{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:14px;margin-bottom:11px\}\
+.cal-hd\{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px\}\
+.cal-leg\{display:flex;gap:10px;font-size:11px;color:var(--tx3)\}\
+.cal-leg span\{display:flex;align-items:center;gap:4px\}\
+.cdot\{width:9px;height:9px;border-radius:2px;display:inline-block\}\
+.cal-g\{display:flex;flex-wrap:wrap;gap:3px\}\
+.cd\{width:14px;height:14px;border-radius:3px;background:var(--s3);cursor:pointer;transition:all .12s\}\
+.cd:hover\{opacity:.75;transform:scale(1.1)\}.cd.done\{background:var(--grn)\}\
+.cd.today\{outline:2px solid var(--ind);outline-offset:1px\}.cd.future\{opacity:.2;cursor:default\}\
+\
+/* MARK BTN */\
+.mbtn\{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:10px;background:var(--grnbg);border:1px solid var(--grnbr);border-radius:var(--r);color:var(--grn);font-size:13px;font-weight:600;transition:all .15s;cursor:pointer\}\
+.mbtn:hover\{background:rgba(34,197,94,.18)\}.mbtn.done\{background:var(--grn);color:#000;border-color:var(--grn)\}\
+\
+/* QUICK LINKS */\
+.ql-g\{display:grid;grid-template-columns:1fr 1fr;gap:6px\}\
+.ql\{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);font-size:12px;font-weight:500;color:var(--tx2);text-decoration:none;transition:all .15s\}\
+.ql:hover\{border-color:var(--ind);color:var(--ind);background:var(--indbg);text-decoration:none\}\
+.qi\{font-size:14px\}\
+\
+/* PHASE BARS */\
+.ph-row\{display:flex;align-items:center;gap:9px;margin-bottom:6px\}.ph-row:last-child\{margin-bottom:0\}\
+.ph-nm\{font-size:12px;color:var(--tx2);min-width:125px\}\
+.ph-bar\{flex:1;height:5px;background:var(--s3);border-radius:3px;overflow:hidden\}\
+.ph-fill\{height:100%;border-radius:3px;transition:width .4s\}\
+.ph-pct\{font-size:11px;font-family:var(--mono);color:var(--tx2);min-width:28px;text-align:right\}\
+\
+/* WEEK ACCORDION */\
+.wk\{margin-bottom:6px\}\
+.wk-h\{display:flex;align-items:center;gap:8px;padding:11px 13px;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);cursor:pointer;user-select:none;transition:border-color .15s\}\
+.wk-h:hover\{border-color:var(--bd2)\}.wk-h.open\{border-color:var(--ind);border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0\}\
+.wk-n\{font-size:10px;font-weight:700;font-family:var(--mono);color:var(--ind);background:var(--indbg);padding:2px 7px;border-radius:4px;flex-shrink:0\}\
+.wk-ph\{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0\}\
+.wk-title\{font-size:13px;font-weight:600;flex:1\}\
+.wk-meta\{display:flex;align-items:center;gap:8px;flex-shrink:0\}\
+.wk-cnt\{font-size:11px;color:var(--tx2);font-family:var(--mono)\}\
+.wk-bar\{width:52px;height:4px;background:var(--s4);border-radius:2px;overflow:hidden\}\
+.wk-bf\{height:100%;background:var(--grn);border-radius:2px;transition:width .3s\}\
+.chev\{color:var(--tx3);font-size:10px;transition:transform .2s;flex-shrink:0\}\
+.wk-h.open .chev\{transform:rotate(90deg)\}\
+.wk-b\{background:var(--s1);border:1px solid var(--ind);border-top:none;border-bottom-left-radius:var(--r2);border-bottom-right-radius:var(--r2);margin-bottom:6px;display:none;padding:0 13px 11px\}\
+.wk-b.open\{display:block\}\
+.wk-tip\{background:var(--ambbg);border:1px solid var(--ambbr);border-radius:var(--r3);padding:7px 11px;font-size:12px;color:var(--amb);margin:9px 0 2px;line-height:1.5\}\
+.day-blk\{margin-top:11px\}\
+.day-hdr\{display:flex;align-items:center;gap:7px;margin-bottom:6px\}\
+.day-pill\{font-size:11px;font-weight:600;background:var(--s3);color:var(--tx);padding:2px 9px;border-radius:10px\}\
+.day-type\{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px\}\
+\
+/* PROBLEM ROW */\
+.pr\{display:flex;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid var(--bd)\}\
+.pr:last-child\{border-bottom:none\}\
+.pchk\{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--bd2);background:none;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;transition:all .15s;cursor:pointer\}\
+.pchk:hover\{border-color:var(--grn)\}.pchk.on\{background:var(--grn);border-color:var(--grn)\}\
+.pchk.on::after\{content:'\uc0\u10003 ';font-size:9px;color:#000;font-weight:700\}\
+.pnm\{flex:1;font-size:13px;cursor:pointer;transition:color .15s\}.pnm:hover\{color:var(--ind)\}.pnm.done\{text-decoration:line-through;color:var(--tx3)\}\
+.plc\{font-size:10px;color:var(--tx3);font-family:var(--mono);flex-shrink:0\}\
+.diff\{font-size:10px;font-weight:600;padding:2px 6px;border-radius:3px;flex-shrink:0\}\
+.de\{background:var(--grnbg);color:var(--grn)\}.dm\{background:var(--ambbg);color:var(--amb)\}.dh\{background:var(--redbg);color:var(--red)\}.ds\{background:var(--purbg);color:var(--pur)\}\
+.pl\{font-size:11px;color:var(--tx3);border:1px solid var(--bd);border-radius:3px;padding:2px 6px;background:none;text-decoration:none;white-space:nowrap;transition:all .15s;flex-shrink:0\}\
+.pl:hover\{border-color:var(--ind);color:var(--ind);text-decoration:none\}\
+.nb\{background:none;border:none;color:var(--tx3);font-size:11px;padding:2px 4px;border-radius:3px;transition:all .15s;flex-shrink:0;cursor:pointer\}\
+.nb:hover\{color:var(--ind);background:var(--indbg)\}.nb.has\{color:var(--amb)\}\
+.pv\{font-size:11px;color:var(--tx2);background:var(--s3);border-radius:4px;padding:4px 8px;margin:2px 24px 4px;display:none;line-height:1.5\}\
+\
+/* NOTE MODAL */\
+.mo\{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;display:none;align-items:center;justify-content:center;padding:20px\}\
+.mo.open\{display:flex\}\
+.mo-box\{background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r2);width:100%;max-width:480px;padding:18px\}\
+.mo-t\{font-size:13px;font-weight:600;margin-bottom:11px;display:flex;justify-content:space-between;align-items:center\}\
+.mo-x\{background:none;border:none;color:var(--tx3);font-size:17px;cursor:pointer\}.mo-x:hover\{color:var(--tx)\}\
+.mo-ta\{width:100%;background:var(--s3);border:1px solid var(--bd);border-radius:var(--r3);color:var(--tx);padding:9px 11px;resize:vertical;min-height:90px;outline:none;line-height:1.6\}\
+.mo-ta:focus\{border-color:var(--ind)\}\
+.mo-f\{display:flex;gap:7px;justify-content:flex-end;margin-top:10px\}\
+.btn\{padding:7px 15px;border-radius:var(--r3);font-size:12px;font-weight:500;border:none;cursor:pointer;transition:all .15s\}\
+.btn-p\{background:var(--ind);color:#fff\}.btn-p:hover\{background:var(--ind2)\}\
+.btn-g\{background:none;border:1px solid var(--bd2);color:var(--tx2)\}.btn-g:hover\{color:var(--tx);background:var(--s3)\}\
+.btn-d\{background:var(--redbg);border:1px solid var(--redbr);color:var(--red)\}.btn-d:hover\{background:rgba(239,68,68,.2)\}\
+\
+/* REVIEW */\
+.rv-card\{display:flex;align-items:center;gap:9px;padding:8px 11px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:5px\}\
+.rv-done\{background:var(--grnbg);border:1px solid var(--grnbr);color:var(--grn);border-radius:var(--r3);padding:3px 9px;font-size:11px;font-weight:600;cursor:pointer;flex-shrink:0\}\
+.rv-done:hover\{background:rgba(34,197,94,.2)\}\
+\
+/* INTERVIEWS */\
+.int-card\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:11px 13px;margin-bottom:7px;display:flex;align-items:flex-start;gap:11px\}\
+.cd-box\{text-align:center;min-width:54px\}\
+.cd-num\{font-size:20px;font-weight:700;font-family:var(--mono);line-height:1\}\
+.cd-lbl\{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em\}\
+.del-btn\{background:none;border:none;color:var(--tx3);font-size:16px;cursor:pointer;flex-shrink:0\}.del-btn:hover\{color:var(--red)\}\
+.af\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:13px;margin-top:9px\}\
+.inp\{background:var(--s3);border:1px solid var(--bd);border-radius:var(--r3);color:var(--tx);padding:7px 10px;outline:none;font-size:13px;width:100%\}\
+.inp:focus\{border-color:var(--ind)\}.inp::placeholder\{color:var(--tx3)\}\
+.fr\{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:7px\}\
+.mb7\{margin-bottom:7px\}\
+\
+/* MISTAKES */\
+.mk-row\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:10px 12px;margin-bottom:5px\}\
+.mk-hdr\{display:flex;align-items:flex-start;justify-content:space-between;gap:7px\}\
+.mk-nm\{font-size:13px;font-weight:500;color:var(--red)\}\
+.mk-pat\{font-size:10px;background:var(--redbg);border:1px solid var(--redbr);color:var(--red);padding:1px 6px;border-radius:3px;margin-top:3px;display:inline-block\}\
+.mk-les\{font-size:12px;color:var(--tx2);margin-top:4px;line-height:1.5\}\
+.mk-dt\{font-size:10px;color:var(--tx3);font-family:var(--mono);margin-top:3px\}\
+\
+/* TIMER */\
+.tdis\{font-size:44px;font-weight:700;font-family:var(--mono);text-align:center;padding:18px 0;letter-spacing:.05em\}\
+.tbrow\{display:flex;gap:7px;justify-content:center\}\
+.tbtn\{padding:8px 18px;border-radius:var(--r);font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .15s\}\
+.ts\{background:var(--grn);color:#000\}.ts:hover\{background:#1ea84f\}\
+.tp\{background:var(--redbg);border:1px solid var(--redbr);color:var(--red)\}.tp:hover\{background:rgba(239,68,68,.2)\}\
+.tr\{background:var(--s3);border:1px solid var(--bd);color:var(--tx2)\}.tr:hover\{background:var(--s4)\}\
+.sr\{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px\}\
+.sr:last-child\{border-bottom:none\}\
+.sd\{color:var(--tx2);min-width:86px;font-family:var(--mono)\}\
+.sm\{font-weight:600;color:var(--grn);font-family:var(--mono);min-width:30px;text-align:right\}\
+.sb\{flex:1;height:4px;background:var(--s3);border-radius:2px;overflow:hidden\}\
+.sb-f\{height:100%;background:var(--grn);border-radius:2px\}\
+\
+/* KANBAN */\
+.kanban\{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:13px\}\
+.kan-col\{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:11px\}\
+.kan-ct\{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px;display:flex;align-items:center;justify-content:space-between\}\
+.kan-cn\{font-size:10px;font-family:var(--mono);background:var(--s3);padding:1px 6px;border-radius:10px;color:var(--tx2)\}\
+.app-card\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:9px;margin-bottom:5px;transition:border-color .15s\}\
+.app-card:hover\{border-color:var(--bd2)\}\
+.app-co\{font-size:13px;font-weight:600\}.app-role\{font-size:11px;color:var(--tx2);margin-top:1px\}.app-mt\{font-size:10px;color:var(--tx3);font-family:var(--mono);margin-top:3px\}\
+.app-acts\{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap\}\
+.app-btn\{font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid var(--bd);background:none;color:var(--tx2);cursor:pointer;transition:all .15s\}\
+.app-btn:hover\{border-color:var(--bd2);color:var(--tx)\}.app-btn.dl:hover\{border-color:var(--redbr);color:var(--red)\}\
+\
+/* TRENDS */\
+.tr-card\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:12px 13px;margin-bottom:7px\}\
+.tr-hdr\{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px;gap:6px;flex-wrap:wrap\}\
+.tr-title\{font-size:13px;font-weight:600\}\
+.tr-hot\{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0\}\
+.tr-desc\{font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:7px\}\
+.tr-tags\{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:7px\}\
+.tr-tag\{font-size:10px;padding:2px 6px;border-radius:3px;background:var(--s3);color:var(--tx2)\}\
+.tr-links\{display:flex;gap:5px;flex-wrap:wrap\}\
+.tl\{font-size:11px;padding:3px 8px;border-radius:var(--r3);border:1px solid var(--bd2);background:none;color:var(--tx2);text-decoration:none;display:inline-block;transition:all .15s\}\
+.tl:hover\{border-color:var(--ind);color:var(--ind);text-decoration:none\}.tl.hot\{background:var(--indbg);border-color:var(--ind);color:var(--ind)\}\
+\
+/* RANDOMISER */\
+.rand\{background:var(--s2);border:2px solid var(--ind);border-radius:var(--r2);padding:18px;text-align:center;margin-bottom:14px\}\
+.rand-tag\{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px\}\
+.rand-nm\{font-size:16px;font-weight:600;margin-bottom:3px\}\
+.rand-mt\{font-size:12px;color:var(--tx2);margin-bottom:12px\}\
+.rand-btns\{display:flex;gap:7px;justify-content:center;flex-wrap:wrap\}\
+.rb\{padding:7px 16px;border-radius:var(--r);font-size:12px;font-weight:600;border:none;cursor:pointer;transition:all .15s\}\
+.rb-go\{background:var(--ind);color:#fff\}.rb-go:hover\{background:var(--ind2)\}\
+.rb-done\{background:var(--grnbg);border:1px solid var(--grnbr);color:var(--grn)\}.rb-done:hover\{background:rgba(34,197,94,.2)\}\
+.rb-skip\{background:var(--s3);border:1px solid var(--bd);color:var(--tx2)\}.rb-skip:hover\{background:var(--s4);color:var(--tx)\}\
+\
+/* CHEAT SHEET */\
+.ctabs\{display:flex;gap:3px;background:var(--s1);border:1px solid var(--bd);padding:3px;border-radius:var(--r);width:fit-content;margin-bottom:14px;flex-wrap:wrap\}\
+.ctab\{padding:5px 12px;border-radius:var(--r3);font-size:12px;font-weight:500;background:none;border:none;color:var(--tx2);cursor:pointer;transition:all .15s\}\
+.ctab:hover\{color:var(--tx)\}.ctab.active\{background:var(--s3);color:var(--tx)\}\
+.cs\{display:none\}.cs.active\{display:block\}\
+.cg\{display:grid;grid-template-columns:1fr 1fr;gap:8px\}\
+.cc\{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:12px\}\
+.cc-t\{font-size:12px;font-weight:600;color:var(--ind);margin-bottom:8px\}\
+.cr\{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--bd);font-size:12px;gap:7px\}\
+.cr:last-child\{border-bottom:none\}.crk\{color:var(--tx2)\}.crv\{font-family:var(--mono);font-size:11px;color:var(--grn)\}\
+.cc-note\{font-size:11px;color:var(--tx3);padding-top:4px;line-height:1.5\}\
+pre.cb\{background:var(--s3);border:1px solid var(--bd);border-radius:var(--r3);padding:10px 12px;font-family:var(--mono);font-size:12px;color:#c9d1d9;overflow-x:auto;line-height:1.7;margin-top:6px\}\
+.kw\{color:#ff79c6\}.fn\{color:#50fa7b\}.cm\{color:#6272a4;font-style:italic\}.nm\{color:#bd93f9\}\
+\
+/* COMPANY */\
+.co-tabs\{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px\}\
+.co-btn\{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid var(--bd);background:none;color:var(--tx2);cursor:pointer;transition:all .15s\}\
+.co-btn:hover\{border-color:var(--bd2);color:var(--tx)\}.co-btn.active\{background:var(--indbg);border-color:var(--ind);color:var(--ind)\}\
+\
+/* RESOURCES */\
+.rs-t\{font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin:16px 0 8px\}\
+.rg\{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:3px\}\
+.rc\{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:12px;transition:border-color .15s\}\
+.rc:hover\{border-color:var(--bd2)\}.rc-nm\{font-size:13px;font-weight:600;margin-bottom:3px\}\
+.rc-desc\{font-size:12px;color:var(--tx2);line-height:1.5;margin-bottom:8px\}\
+.rc-links\{display:flex;gap:5px;flex-wrap:wrap\}\
+.rl\{font-size:11px;padding:3px 8px;border-radius:var(--r3);border:1px solid var(--bd2);background:none;color:var(--tx2);text-decoration:none;display:inline-block;transition:all .15s\}\
+.rl:hover\{border-color:var(--ind);color:var(--ind);text-decoration:none\}.rl.p\{background:var(--indbg);border-color:var(--ind);color:var(--ind)\}\
+\
+/* TOAST */\
+.toast\{position:fixed;bottom:20px;right:20px;background:var(--s3);border:1px solid var(--grnbr);border-radius:var(--r);padding:8px 14px;font-size:13px;color:var(--grn);font-weight:500;transform:translateY(50px);opacity:0;transition:all .25s;z-index:1000;pointer-events:none;max-width:260px\}\
+.toast.show\{transform:translateY(0);opacity:1\}\
+.empty\{text-align:center;padding:28px 18px;color:var(--tx3);font-size:13px\}\
+.emi\{font-size:28px;margin-bottom:7px\}\
+\
+@media(max-width:860px)\{.sidebar\{display:none\}.main\{padding:12px\}.cg,.rg,.g2,.kanban,.ql-g,.fr\{grid-template-columns:1fr\}.stats\{grid-template-columns:repeat(2,1fr)\}\}\
+</style>\
+</head>\
+<body>\
+<header class="tb">\
+  <div class="tb-logo">Prep<span>OS</span><sup>v3</sup></div>\
+  <nav class="tb-nav">\
+    <button class="tnav" onclick="go('howto')">How to use</button>\
+    <button class="tnav active" onclick="go('dash')">Dashboard</button>\
+    <button class="tnav" onclick="go('weeks')">Weekly Plans</button>\
+    <button class="tnav" onclick="go('trends')">2025 Trends</button>\
+    <button class="tnav" onclick="go('review')">Review <span id="rv-b" style="background:var(--redbg);color:var(--red);font-size:10px;padding:1px 5px;border-radius:8px;margin-left:2px;font-family:var(--mono)">0</span></button>\
+    <button class="tnav" onclick="go('ints')">Interviews</button>\
+    <button class="tnav" onclick="go('mist')">Mistakes</button>\
+    <button class="tnav" onclick="go('time')">Timer</button>\
+    <button class="tnav" onclick="go('apps')">Applications</button>\
+    <button class="tnav" onclick="go('cheat')">Cheat Sheet</button>\
+    <button class="tnav" onclick="go('cos')">Company Qs</button>\
+    <button class="tnav" onclick="go('res')">Resources</button>\
+  </nav>\
+  <div class="tb-right">\
+    <div class="streak-pill"><span class="flame" id="flame">\uc0\u55357 \u56613 </span><span id="tb-s">0 day streak</span></div>\
+    <div class="tb-date" id="tb-d"></div>\
+  </div>\
+</header>\
+<div class="shell">\
+<aside class="sidebar">\
+  <div class="sl">Overview</div>\
+  <button class="si" onclick="go('howto')"><span class="si-ic">\uc0\u55357 \u56481 </span>How to use</button>\
+  <button class="si active" onclick="go('dash')"><span class="si-ic">\uc0\u9672 </span>Dashboard</button>\
+  <button class="si" onclick="go('trends')"><span class="si-ic">\uc0\u55357 \u56613 </span>2025 Trends</button>\
+  <button class="si" onclick="go('review')"><span class="si-ic">\uc0\u55357 \u56580 </span>Review due<span class="si-bdg red-bdg" id="sb-rv">0</span></button>\
+  <div class="sl">DSA weeks</div>\
+  <button class="si" onclick="go('weeks')"><span class="si-ic">\uc0\u55357 \u56517 </span>All 16 weeks</button>\
+  <button class="si" onclick="go('weeks');ow(1)"><span class="si-ic">\uc0\u9312 </span>W1 Arrays/SW/2P<div class="si-bar"><div class="si-bar-f" id="sb1"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(2)"><span class="si-ic">\uc0\u9313 </span>W2 Binary Search<div class="si-bar"><div class="si-bar-f" id="sb2"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(3)"><span class="si-ic">\uc0\u9314 </span>W3 Stack/Queue<div class="si-bar"><div class="si-bar-f" id="sb3"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(4)"><span class="si-ic">\uc0\u9315 </span>W4 Linked List<div class="si-bar"><div class="si-bar-f" id="sb4"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(5)"><span class="si-ic">\uc0\u9316 </span>W5 Trees DFS/BFS<div class="si-bar"><div class="si-bar-f" id="sb5"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(6)"><span class="si-ic">\uc0\u9317 </span>W6 BST + Trie<div class="si-bar"><div class="si-bar-f" id="sb6"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(7)"><span class="si-ic">\uc0\u9318 </span>W7 Graphs<div class="si-bar"><div class="si-bar-f" id="sb7"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(8)"><span class="si-ic">\uc0\u9319 </span>W8 Adv Graphs<div class="si-bar"><div class="si-bar-f" id="sb8"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(9)"><span class="si-ic">\uc0\u9320 </span>W9 Backtracking<div class="si-bar"><div class="si-bar-f" id="sb9"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(10)"><span class="si-ic">\uc0\u9321 </span>W10 DP<div class="si-bar"><div class="si-bar-f" id="sb10"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(11)"><span class="si-ic">\uc0\u9322 </span>W11 Heaps/Greedy<div class="si-bar"><div class="si-bar-f" id="sb11"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(12)"><span class="si-ic">\uc0\u9323 </span>W12 Bits/Math/KMP<div class="si-bar"><div class="si-bar-f" id="sb12"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(13)"><span class="si-ic">\uc0\u9324 </span>W13 Seg Tree/BIT<div class="si-bar"><div class="si-bar-f" id="sb13"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(14)"><span class="si-ic">\uc0\u9325 </span>W14-16 Sys Design<div class="si-bar"><div class="si-bar-f" id="sb14"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(15)"><span class="si-ic">\uc0\u9326 </span>W15 Adv Structures<div class="si-bar"><div class="si-bar-f" id="sb15"></div></div></button>\
+  <button class="si" onclick="go('weeks');ow(16)"><span class="si-ic">\uc0\u9327 </span>W16-18 Interviews<div class="si-bar"><div class="si-bar-f" id="sb16"></div></div></button>\
+  <div class="sl">Track</div>\
+  <button class="si" onclick="go('ints')"><span class="si-ic">\uc0\u55357 \u56517 </span>Interviews<span class="si-bdg amb-bdg" id="sb-int">0</span></button>\
+  <button class="si" onclick="go('mist')"><span class="si-ic">\uc0\u10060 </span>Mistakes<span class="si-bdg red-bdg" id="sb-mis">0</span></button>\
+  <button class="si" onclick="go('time')"><span class="si-ic">\uc0\u9201 </span>Time tracker</button>\
+  <button class="si" onclick="go('apps')"><span class="si-ic">\uc0\u55357 \u56523 </span>Applications</button>\
+  <div class="sl">Reference</div>\
+  <button class="si" onclick="go('cheat')"><span class="si-ic">\uc0\u55357 \u56523 </span>Cheat sheet</button>\
+  <button class="si" onclick="go('cos')"><span class="si-ic">\uc0\u55356 \u57314 </span>Company Qs</button>\
+  <button class="si" onclick="go('res')"><span class="si-ic">\uc0\u55357 \u56599 </span>Resources</button>\
+</aside>\
+<main class="main">\
+\
+<!-- DASHBOARD -->\
+<section id="page-dash" class="page active">\
+  <div class="ph"><h1>Dashboard</h1><p>16 weeks \'b7 2 problems per day \'b7 PepCoding-aligned order \'b7 no option to fail.</p></div>\
+  <div class="stats">\
+    <div class="stat"><div class="sv" id="s-str">0</div><div class="sl2">Day streak</div><div class="ss" id="s-ss">Start today</div></div>\
+    <div class="stat"><div class="sv" id="s-sol">0</div><div class="sl2">Solved</div><div class="ss">of 225 planned</div></div>\
+    <div class="stat"><div class="sv" id="s-day">0</div><div class="sl2">Days done</div><div class="ss">of 126 total</div></div>\
+    <div class="stat"><div class="sv" id="s-tim">0h</div><div class="sl2">This week</div><div class="ss" id="s-ts">mins logged</div></div>\
+    <div class="stat"><div class="sv" id="s-rv">0</div><div class="sl2">Due review</div><div class="ss" id="s-rs">problems</div></div>\
+  </div>\
+  <div class="rand" id="rand-box">\
+    <div class="rand-tag">Today's problem</div>\
+    <div class="rand-nm" id="rp-n">Click to pick a problem</div>\
+    <div class="rand-mt" id="rp-m"></div>\
+    <div class="rand-btns">\
+      <button class="rb rb-go" onclick="openR()">Open LC \uc0\u8599 </button>\
+      <button class="rb rb-done" onclick="solveR()">Mark solved \uc0\u10003 </button>\
+      <button class="rb rb-skip" onclick="pickR()">Next \uc0\u8594 </button>\
+    </div>\
+  </div>\
+  <div class="cal-wrap">\
+    <div class="cal-hd"><div style="font-size:13px;font-weight:600">126-day streak tracker</div>\
+      <div class="cal-leg">\
+        <span><span class="cdot" style="background:var(--s3)"></span>Missed</span>\
+        <span><span class="cdot" style="background:var(--grn)"></span>Done</span>\
+        <span><span class="cdot" style="background:var(--s3);outline:2px solid var(--ind);outline-offset:1px"></span>Today</span>\
+      </div>\
+    </div>\
+    <div class="cal-g" id="cal-g"></div>\
+  </div>\
+  <div class="g2">\
+    <div>\
+      <div class="card" style="margin-bottom:9px">\
+        <div class="card-t">Mark today</div>\
+        <button class="mbtn" id="mbtn" onclick="markToday()">\uc0\u10003  Mark today as done</button>\
+        <div style="font-size:11px;color:var(--tx3);text-align:center;margin-top:6px" id="mbtn-s">Click after your daily session</div>\
+      </div>\
+      <div class="card">\
+        <div class="card-t">Phase progress</div>\
+        <div class="ph-row"><span class="ph-nm">Phase 1 \'97 Foundation</span><div class="ph-bar"><div class="ph-fill" id="pp1" style="background:var(--grn);width:0%"></div></div><span class="ph-pct" id="pt1">0%</span></div>\
+        <div class="ph-row"><span class="ph-nm">Phase 2 \'97 Core DSA</span><div class="ph-bar"><div class="ph-fill" id="pp2" style="background:var(--ind);width:0%"></div></div><span class="ph-pct" id="pt2">0%</span></div>\
+        <div class="ph-row"><span class="ph-nm">Phase 3 \'97 Advanced DSA</span><div class="ph-bar"><div class="ph-fill" id="pp3" style="background:var(--amb);width:0%"></div></div><span class="ph-pct" id="pt3">0%</span></div>\
+        <div class="ph-row"><span class="ph-nm">Phase 4 \'97 SD + Interviews</span><div class="ph-bar"><div class="ph-fill" id="pp4" style="background:var(--pur);width:0%"></div></div><span class="ph-pct" id="pt4">0%</span></div>\
+      </div>\
+    </div>\
+    <div class="card">\
+      <div class="card-t">Quick launch</div>\
+      <div class="ql-g">\
+        <a href="https://neetcode.io/roadmap" target="_blank" class="ql"><span class="qi">\uc0\u55356 \u57263 </span>Neetcode</a>\
+        <a href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/" target="_blank" class="ql"><span class="qi">\uc0\u55357 \u56541 </span>Striver Sheet</a>\
+        <a href="https://leetcode.com/studyplan/top-interview-150/" target="_blank" class="ql"><span class="qi">\uc0\u55357 \u56507 </span>LC Top 150</a>\
+        <a href="https://www.pramp.com" target="_blank" class="ql"><span class="qi">\uc0\u55356 \u57261 </span>Pramp Mock</a>\
+        <a href="https://interviewing.io" target="_blank" class="ql"><span class="qi">\uc0\u55356 \u57286 </span>Interviewing.io</a>\
+        <a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="ql"><span class="qi">\uc0\u55356 \u57303 \u65039 </span>SD Primer</a>\
+        <a href="https://bytebytego.com" target="_blank" class="ql"><span class="qi">\uc0\u55357 \u56528 </span>ByteByteGo</a>\
+        <a href="https://www.levels.fyi" target="_blank" class="ql"><span class="qi">\uc0\u55357 \u56496 </span>Levels.fyi</a>\
+      </div>\
+    </div>\
+  </div>\
+</section>\
+\
+<!-- WEEKS -->\
+<section id="page-weeks" class="page">\
+  <div class="ph"><h1>Weekly plans</h1><p>16 weeks \'b7 2 problems/day \'b7 all DSA topics in PepCoding order. Click \uc0\u9998  to add notes. Spaced repetition auto-schedules on solve.</p></div>\
+  <div id="weeks-root"></div>\
+</section>\
+\
+<!-- TRENDS -->\
+<section id="page-trends" class="page">\
+  <div class="ph"><h1>2025 interview trends</h1><p>What's actually being asked right now. Updated regularly \'97 this is your edge over candidates using outdated prep material.</p></div>\
+  <div style="background:var(--indbg);border:1px solid var(--indbr);border-radius:var(--r);padding:10px 13px;font-size:12px;color:var(--tx2);margin-bottom:14px;line-height:1.7">\
+    <strong style="color:var(--ind)">How to use:</strong> Read one trend card per day during weeks 8\'9610. For each topic, understand the concept at a high level \'97 you don't need to implement a RAG system, but you need to design one in an interview.\
+  </div>\
+  <div id="trends-root"></div>\
+</section>\
+\
+<!-- REVIEW -->\
+<section id="page-review" class="page">\
+  <div class="ph"><h1>Review due</h1><p>Spaced repetition: 1d \uc0\u8594  3d \u8594  7d \u8594  14d \u8594  30d after each solve. Re-solving beats re-reading 5\'d7 for retention.</p></div>\
+  <div style="background:var(--ambbg);border:1px solid var(--ambbr);border-radius:var(--r);padding:8px 11px;font-size:12px;color:var(--amb);margin-bottom:12px">\uc0\u9200  Clear this list every day. Each review advances the interval. After 5 reviews a problem is mastered.</div>\
+  <div id="review-root"></div>\
+</section>\
+\
+<!-- INTERVIEWS -->\
+<section id="page-ints" class="page">\
+  <div class="ph"><h1>Interview schedule</h1><p>Countdown makes it real. Every day visible is a day you can't waste.</p></div>\
+  <div id="int-root"></div>\
+  <div class="af">\
+    <div class="card-t" style="margin-bottom:9px">Add interview</div>\
+    <div class="fr"><input class="inp" id="i-co" placeholder="Company"><input class="inp" id="i-role" placeholder="Round (e.g. SDE2 Onsite)"></div>\
+    <div class="fr"><input class="inp" type="date" id="i-dt"><select class="inp" id="i-st"><option>Scheduled</option><option>Applied</option><option>Phone screen</option><option>Onsite</option></select></div>\
+    <button class="btn btn-p" onclick="addInt()" style="width:100%">Add interview</button>\
+  </div>\
+</section>\
+\
+<!-- MISTAKES -->\
+<section id="page-mist" class="page">\
+  <div class="ph"><h1>Mistake log</h1><p>Every wrong answer is a gift if you log it. This is where real learning compounds.</p></div>\
+  <div class="af" style="margin-bottom:12px">\
+    <div class="card-t" style="margin-bottom:9px">Log a mistake</div>\
+    <input class="inp mb7" id="m-nm" placeholder="Problem name">\
+    <div class="fr"><input class="inp" id="m-pt" placeholder="Pattern missed"><input class="inp" id="m-lc" placeholder="LC # (optional)"></div>\
+    <textarea class="inp" id="m-ls" placeholder="What went wrong? Key insight you missed?" style="min-height:65px;margin-top:7px;resize:vertical"></textarea>\
+    <button class="btn btn-p" onclick="addMistake()" style="width:100%;margin-top:7px">Log mistake</button>\
+  </div>\
+  <div id="mist-root"></div>\
+</section>\
+\
+<!-- TIMER -->\
+<section id="page-time" class="page">\
+  <div class="ph"><h1>Time tracker</h1><p>2 hours every day beats 10 hours on Sunday. Make it visible.</p></div>\
+  <div class="g2">\
+    <div class="card">\
+      <div class="card-t" style="justify-content:center">Session timer</div>\
+      <div class="tdis" id="tdis">00:00:00</div>\
+      <div class="tbrow">\
+        <button class="tbtn ts" id="ts-btn" onclick="startT()">Start</button>\
+        <button class="tbtn tp" onclick="stopT()">Stop & save</button>\
+        <button class="tbtn tr" onclick="resetT()">Reset</button>\
+      </div>\
+      <div style="margin-top:12px;border-top:1px solid var(--bd);padding-top:11px">\
+        <div style="font-size:12px;color:var(--tx2);margin-bottom:7px">Log manually:</div>\
+        <div style="display:flex;gap:7px">\
+          <input class="inp" type="number" id="man-m" placeholder="Minutes" min="1" max="480" style="flex:1">\
+          <button class="btn btn-p" onclick="logM()">Log</button>\
+        </div>\
+      </div>\
+    </div>\
+    <div class="card">\
+      <div class="card-t">This week <span style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--grn);margin-left:auto" id="wk-tot">0h 0m</span></div>\
+      <div id="sess-h"></div>\
+    </div>\
+  </div>\
+</section>\
+\
+<!-- APPLICATIONS -->\
+<section id="page-apps" class="page">\
+  <div class="ph"><h1>Application tracker</h1><p>2+ competing offers = maximum negotiating power. Track your pipeline.</p></div>\
+  <div class="kanban" id="kanban"></div>\
+  <div class="af">\
+    <div class="card-t" style="margin-bottom:9px">Add application</div>\
+    <div class="fr"><input class="inp" id="a-co" placeholder="Company"><input class="inp" id="a-role" placeholder="Role (e.g. SDE2)"></div>\
+    <div class="fr">\
+      <select class="inp" id="a-st"><option>Applied</option><option>Phone screen</option><option>Onsite</option><option>Offer</option></select>\
+      <input class="inp" id="a-nt" placeholder="Notes (optional)">\
+    </div>\
+    <button class="btn btn-p" onclick="addApp()" style="width:100%;margin-top:2px">Add</button>\
+  </div>\
+</section>\
+\
+<!-- CHEAT SHEET -->\
+<section id="page-cheat" class="page">\
+  <div class="ph"><h1>DSA cheat sheet</h1><p>Patterns, complexities, code templates, SD framework, behavioural STAR.</p></div>\
+  <div class="ctabs">\
+    <button class="ctab active" onclick="showCS('pat',this)">Patterns</button>\
+    <button class="ctab" onclick="showCS('cmp',this)">Complexity</button>\
+    <button class="ctab" onclick="showCS('tpl',this)">Templates</button>\
+    <button class="ctab" onclick="showCS('sd',this)">SD framework</button>\
+    <button class="ctab" onclick="showCS('beh',this)">Behavioural</button>\
+  </div>\
+  <div id="cs-pat" class="cs active"><div class="cg">\
+    <div class="cc"><div class="cc-t">Sliding window</div><div class="cr"><span class="crk">Fixed size</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">Variable size</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">With hashmap</span><span class="crv">O(n)</span></div><div class="cc-note">Use when: contiguous subarray/substring, max/min in window, at most K distinct</div></div>\
+    <div class="cc"><div class="cc-t">Two pointers</div><div class="cr"><span class="crk">Opposite ends</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">Slow + fast (Floyd)</span><span class="crv">O(n) O(1)</span></div><div class="cr"><span class="crk">Three pointer (3Sum)</span><span class="crv">O(n\'b2)</span></div><div class="cc-note">Use when: sorted input, pairs/triplets, cycle detection</div></div>\
+    <div class="cc"><div class="cc-t">Binary search</div><div class="cr"><span class="crk">Classic lo/hi/mid</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Rotated array</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">On answer space</span><span class="crv">O(n log n)</span></div><div class="cc-note">Use when: sorted input, find min/max satisfying condition, monotonic function</div></div>\
+    <div class="cc"><div class="cc-t">DFS / BFS</div><div class="cr"><span class="crk">DFS recursive</span><span class="crv">O(V+E)</span></div><div class="cr"><span class="crk">BFS queue</span><span class="crv">O(V+E)</span></div><div class="cr"><span class="crk">Multi-source BFS</span><span class="crv">O(V+E)</span></div><div class="cc-note">BFS = shortest path unweighted. DFS = existence, cycle, backtracking</div></div>\
+    <div class="cc"><div class="cc-t">Dynamic programming</div><div class="cr"><span class="crk">Top-down (memo)</span><span class="crv">varies</span></div><div class="cr"><span class="crk">Bottom-up (table)</span><span class="crv">varies</span></div><div class="cr"><span class="crk">Space optimised</span><span class="crv">O(n)\uc0\u8594 O(1)</span></div><div class="cc-note">Triggers: overlapping subproblems + optimal substructure. 6 DP patterns.</div></div>\
+    <div class="cc"><div class="cc-t">Backtracking</div><div class="cr"><span class="crk">Subsets</span><span class="crv">O(2\uc0\u8319 )</span></div><div class="cr"><span class="crk">Permutations</span><span class="crv">O(n!)</span></div><div class="cr"><span class="crk">With pruning</span><span class="crv">much faster</span></div><div class="cc-note">Template: choose \u8594  recurse \u8594  unchoose. ALWAYS prune early.</div></div>\
+    <div class="cc"><div class="cc-t">Monotonic stack</div><div class="cr"><span class="crk">Next greater element</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">Largest rectangle</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">Trapping rain water</span><span class="crv">O(n)</span></div><div class="cc-note">Ask: what does current element invalidate from the stack?</div></div>\
+    <div class="cc"><div class="cc-t">Heap / priority queue</div><div class="cr"><span class="crk">Top K elements</span><span class="crv">O(n log k)</span></div><div class="cr"><span class="crk">Two heaps (median)</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Merge K sorted</span><span class="crv">O(n log k)</span></div><div class="cc-note">Two heaps: any problem needing max of lower half + min of upper half.</div></div>\
+    <div class="cc"><div class="cc-t">Union-Find (DSU)</div><div class="cr"><span class="crk">Find (path compress)</span><span class="crv">O(\uc0\u945 (n))\u8776 O(1)</span></div><div class="cr"><span class="crk">Union by rank</span><span class="crv">O(\u945 (n))\u8776 O(1)</span></div><div class="cr"><span class="crk">Kruskal's MST</span><span class="crv">O(E log E)</span></div><div class="cc-note">Use when: connected components, dynamic connectivity, MST</div></div>\
+    <div class="cc"><div class="cc-t">Bit manipulation</div><div class="cr"><span class="crk">XOR magic: a^a=0</span><span class="crv">O(1)</span></div><div class="cr"><span class="crk">n & (n-1): clear LSB</span><span class="crv">O(1)</span></div><div class="cr"><span class="crk">Power of 2 check</span><span class="crv">n>0 && n&(n-1)==0</span></div><div class="cc-note">XOR is the key operator. All single-number variants use it.</div></div>\
+  </div></div>\
+  <div id="cs-cmp" class="cs"><div class="cg">\
+    <div class="cc"><div class="cc-t">Sorting</div><div class="cr"><span class="crk">Quicksort avg</span><span class="crv">O(n log n) O(log n)</span></div><div class="cr"><span class="crk">Mergesort</span><span class="crv">O(n log n) O(n)</span></div><div class="cr"><span class="crk">Heapsort</span><span class="crv">O(n log n) O(1)</span></div><div class="cr"><span class="crk">Counting sort</span><span class="crv">O(n+k) O(k)</span></div></div>\
+    <div class="cc"><div class="cc-t">Data structures</div><div class="cr"><span class="crk">HashMap get/set</span><span class="crv">O(1) avg</span></div><div class="cr"><span class="crk">BST search/insert</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Heap insert/del</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Trie insert/search</span><span class="crv">O(m) m=len</span></div></div>\
+    <div class="cc"><div class="cc-t">Graph algorithms</div><div class="cr"><span class="crk">BFS / DFS</span><span class="crv">O(V+E)</span></div><div class="cr"><span class="crk">Dijkstra heap</span><span class="crv">O(E log V)</span></div><div class="cr"><span class="crk">Bellman-Ford</span><span class="crv">O(V\'b7E)</span></div><div class="cr"><span class="crk">Floyd-Warshall</span><span class="crv">O(V\'b3)</span></div></div>\
+    <div class="cc"><div class="cc-t">Advanced structures</div><div class="cr"><span class="crk">Segment tree build</span><span class="crv">O(n)</span></div><div class="cr"><span class="crk">Segment tree query</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Fenwick tree update</span><span class="crv">O(log n)</span></div><div class="cr"><span class="crk">Fenwick tree prefix</span><span class="crv">O(log n)</span></div></div>\
+  </div></div>\
+  <div id="cs-tpl" class="cs"><div style="display:flex;flex-direction:column;gap:12px">\
+    <div class="cc" style="max-width:100%"><div class="cc-t">Sliding window \'97 variable size</div><pre class="cb"><span class="kw">def</span> sliding_window(s):\
+    left = 0; window = \{\}; ans = 0\
+    <span class="kw">for</span> right <span class="kw">in</span> range(len(s)):\
+        window[s[right]] = window.get(s[right], 0) + 1\
+        <span class="kw">while</span> window_invalid(window):\
+            window[s[left]] -= 1\
+            <span class="kw">if not</span> window[s[left]]: <span class="kw">del</span> window[s[left]]\
+            left += 1\
+        ans = max(ans, right - left + 1)\
+    <span class="kw">return</span> ans</pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">Backtracking \'97 subsets/combinations template</div><pre class="cb"><span class="kw">def</span> backtrack(start, path, result):\
+    result.append(path[:])          <span class="nm"># record state</span>\
+    <span class="kw">for</span> i <span class="kw">in</span> range(start, len(nums)):\
+        <span class="kw">if</span> should_prune(i): <span class="kw">continue</span>  <span class="nm"># prune early!</span>\
+        path.append(nums[i])        <span class="nm"># choose</span>\
+        backtrack(i + 1, path, result)\
+        path.pop()                  <span class="nm"># unchoose</span></pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">Binary search on answer space</div><pre class="cb">lo, hi = min_possible, max_possible\
+<span class="kw">while</span> lo &lt; hi:\
+    mid = (lo + hi) // 2\
+    <span class="kw">if</span> feasible(mid): hi = mid   <span class="nm"># find minimum feasible</span>\
+    <span class="kw">else</span>: lo = mid + 1\
+<span class="kw">return</span> lo</pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">BFS shortest path</div><pre class="cb"><span class="kw">from</span> collections <span class="kw">import</span> deque\
+queue = deque([(start, 0)]); visited = \{start\}\
+<span class="kw">while</span> queue:\
+    node, dist = queue.popleft()\
+    <span class="kw">if</span> node == target: <span class="kw">return</span> dist\
+    <span class="kw">for</span> nei <span class="kw">in</span> graph[node]:\
+        <span class="kw">if</span> nei <span class="kw">not in</span> visited:\
+            visited.add(nei); queue.append((nei, dist+1))</pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">Union-Find with path compression + rank</div><pre class="cb">parent = list(range(n)); rank = [0]*n\
+<span class="kw">def</span> find(x):\
+    <span class="kw">if</span> parent[x] != x: parent[x] = find(parent[x])\
+    <span class="kw">return</span> parent[x]\
+<span class="kw">def</span> union(x, y):\
+    px, py = find(x), find(y)\
+    <span class="kw">if</span> px == py: <span class="kw">return False</span>\
+    <span class="kw">if</span> rank[px] &lt; rank[py]: px, py = py, px\
+    parent[py] = px\
+    <span class="kw">if</span> rank[px] == rank[py]: rank[px] += 1\
+    <span class="kw">return True</span></pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">Dijkstra shortest path</div><pre class="cb"><span class="kw">import</span> heapq\
+<span class="kw">def</span> dijkstra(graph, src, n):\
+    dist = [float('inf')] * n; dist[src] = 0\
+    heap = [(0, src)]\
+    <span class="kw">while</span> heap:\
+        d, u = heapq.heappop(heap)\
+        <span class="kw">if</span> d > dist[u]: <span class="kw">continue</span>\
+        <span class="kw">for</span> v, w <span class="kw">in</span> graph[u]:\
+            <span class="kw">if</span> dist[u] + w &lt; dist[v]:\
+                dist[v] = dist[u] + w\
+                heapq.heappush(heap, (dist[v], v))\
+    <span class="kw">return</span> dist</pre></div>\
+    <div class="cc" style="max-width:100%"><div class="cc-t">KMP string search</div><pre class="cb"><span class="kw">def</span> kmp(text, pattern):\
+    lps = [0] * len(pattern); j = 0\
+    <span class="nm"># build failure function</span>\
+    <span class="kw">for</span> i <span class="kw">in</span> range(1, len(pattern)):\
+        <span class="kw">while</span> j > 0 <span class="kw">and</span> pattern[i] != pattern[j]: j = lps[j-1]\
+        <span class="kw">if</span> pattern[i] == pattern[j]: j += 1\
+        lps[i] = j\
+    <span class="nm"># search</span>\
+    j = 0\
+    <span class="kw">for</span> i <span class="kw">in</span> range(len(text)):\
+        <span class="kw">while</span> j > 0 <span class="kw">and</span> text[i] != pattern[j]: j = lps[j-1]\
+        <span class="kw">if</span> text[i] == pattern[j]: j += 1\
+        <span class="kw">if</span> j == len(pattern): <span class="kw">return</span> i - j + 1\
+    <span class="kw">return</span> -1</pre></div>\
+  </div></div>\
+  <div id="cs-sd" class="cs"><div style="display:flex;flex-direction:column;gap:9px">\
+    <div class="cc" style="max-width:100%;border-color:var(--indbr)"><div class="cc-t">7-step SD framework \'97 use every single time</div>\
+      <div class="cr"><span class="crk">1 \'97 Clarify requirements (functional + non-functional)</span><span class="crv">5 min</span></div>\
+      <div class="cr"><span class="crk">2 \'97 Capacity estimation (QPS, storage, bandwidth)</span><span class="crv">3 min</span></div>\
+      <div class="cr"><span class="crk">3 \'97 API design (endpoints, request/response schema)</span><span class="crv">5 min</span></div>\
+      <div class="cr"><span class="crk">4 \'97 High-level design (components + data flow diagram)</span><span class="crv">8 min</span></div>\
+      <div class="cr"><span class="crk">5 \'97 Deep dive (DB schema, core algorithm, bottlenecks)</span><span class="crv">12 min</span></div>\
+      <div class="cr"><span class="crk">6 \'97 Scale it (sharding, caching, CDN, replication)</span><span class="crv">5 min</span></div>\
+      <div class="cr"><span class="crk">7 \'97 Failure modes + tradeoffs</span><span class="crv">2 min</span></div>\
+    </div>\
+    <div class="cg">\
+      <div class="cc"><div class="cc-t">Estimation shortcuts</div><div class="cr"><span class="crk">1M users \'d7 10% DAU</span><span class="crv">= 100K DAU</span></div><div class="cr"><span class="crk">100K DAU \'d7 10 req/day</span><span class="crv">\uc0\u8776  12 QPS</span></div><div class="cr"><span class="crk">1KB \'d7 1M records</span><span class="crv">= 1 GB</span></div><div class="cr"><span class="crk">Read:Write ratio</span><span class="crv">usually 100:1</span></div><div class="cr"><span class="crk">SSD / RAM speed</span><span class="crv">100MB/s / 10GB/s</span></div></div>\
+      <div class="cc"><div class="cc-t">CAP theorem</div><div class="cr"><span class="crk">Consistency</span><span class="crv">all nodes same data</span></div><div class="cr"><span class="crk">Availability</span><span class="crv">always responds</span></div><div class="cr"><span class="crk">Partition tolerance</span><span class="crv">survives network split</span></div><div class="cc-note" style="color:var(--amb)">Pick CP or AP. Network partitions always happen. You can't have all 3.</div></div>\
+      <div class="cc"><div class="cc-t">Cache strategies</div><div class="cr"><span class="crk">Cache aside (lazy)</span><span class="crv">most common</span></div><div class="cr"><span class="crk">Write through</span><span class="crv">cache + DB together</span></div><div class="cr"><span class="crk">Write back</span><span class="crv">cache first, async DB</span></div><div class="cr"><span class="crk">Eviction</span><span class="crv">LRU / LFU / TTL</span></div></div>\
+      <div class="cc"><div class="cc-t">DB choice</div><div class="cr"><span class="crk">Structured + ACID</span><span class="crv">PostgreSQL/MySQL</span></div><div class="cr"><span class="crk">Flexible schema</span><span class="crv">MongoDB</span></div><div class="cr"><span class="crk">Key-value/cache</span><span class="crv">Redis</span></div><div class="cr"><span class="crk">Full-text search</span><span class="crv">Elasticsearch</span></div></div>\
+    </div>\
+  </div></div>\
+  <div id="cs-beh" class="cs">\
+    <div style="background:var(--indbg);border:1px solid var(--indbr);border-radius:var(--r);padding:9px 12px;font-size:12px;color:var(--tx2);margin-bottom:12px;line-height:1.7">\
+      <strong style="color:var(--ind)">STAR:</strong> Situation \uc0\u8594  Task \u8594  Action \u8594  Result. End with a number always. "Reduced p95 latency by 40%" beats "improved performance" every time.\
+    </div>\
+    <div id="star-root"></div>\
+  </div>\
+</section>\
+\
+<!-- COMPANY Qs -->\
+<section id="page-cos" class="page">\
+  <div class="ph"><h1>Company-wise questions</h1><p>Most-asked problems at each company, 2024\'9625 patterns.</p></div>\
+  <div class="co-tabs" id="co-tabs"></div>\
+  <div id="co-content"></div>\
+</section>\
+\
+<!-- RESOURCES -->\
+<section id="page-res" class="page">\
+  <div class="ph"><h1>Resources</h1><p>Every link you need, organised by category.</p></div>\
+  <div class="rs-t">DSA practice</div>\
+  <div class="rg">\
+    <div class="rc"><div class="rc-nm">Neetcode</div><div class="rc-desc">Best structured roadmap. 150 curated problems with video explanations.</div><div class="rc-links"><a href="https://neetcode.io/roadmap" target="_blank" class="rl p">Roadmap \uc0\u8599 </a><a href="https://neetcode.io/practice" target="_blank" class="rl">Practice \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Striver SDE Sheet</div><div class="rc-desc">180 problems mapped to India company patterns. Best for Flipkart, Uber, PhonePe.</div><div class="rc-links"><a href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/" target="_blank" class="rl p">Sheet \uc0\u8599 </a><a href="https://www.youtube.com/@takeUforward" target="_blank" class="rl">YouTube \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">LeetCode</div><div class="rc-desc">Primary platform. Use Top 150 plan. Filter by company after week 6.</div><div class="rc-links"><a href="https://leetcode.com/studyplan/top-interview-150/" target="_blank" class="rl p">Top 150 \uc0\u8599 </a><a href="https://leetcode.com/problemset/" target="_blank" class="rl">All \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Striver DP + Graph Series</div><div class="rc-desc">Best DP (56 videos) and Graph (54 videos) playlists. Covers every pattern.</div><div class="rc-links"><a href="https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY" target="_blank" class="rl p">DP \uc0\u8599 </a><a href="https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn" target="_blank" class="rl">Graphs \u8599 </a></div></div>\
+  </div>\
+  <div class="rs-t">System design</div>\
+  <div class="rg">\
+    <div class="rc"><div class="rc-nm">System Design Primer</div><div class="rc-desc">Most comprehensive free resource. Read cover to cover during weeks 14\'9616.</div><div class="rc-links"><a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="rl p">GitHub \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">ByteByteGo</div><div class="rc-desc">Alex Xu's visual SD explanations. Best for building intuition fast.</div><div class="rc-links"><a href="https://bytebytego.com" target="_blank" class="rl p">Website \uc0\u8599 </a><a href="https://www.youtube.com/@ByteByteGo" target="_blank" class="rl">YouTube \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Gaurav Sen</div><div class="rc-desc">Best Indian SD YouTuber. Kafka, Zookeeper, Consistent Hashing deep dives.</div><div class="rc-links"><a href="https://www.youtube.com/@gkcs" target="_blank" class="rl p">YouTube \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Grokking SD Interview</div><div class="rc-desc">Structured course worth paying for before Tier 1 SD rounds.</div><div class="rc-links"><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank" class="rl p">Educative \uc0\u8599 </a></div></div>\
+  </div>\
+  <div class="rs-t">Mock interviews</div>\
+  <div class="rg">\
+    <div class="rc"><div class="rc-nm">Pramp</div><div class="rc-desc">Free peer-to-peer mocks. 2\'d7 per week from week 9. Best free option.</div><div class="rc-links"><a href="https://www.pramp.com" target="_blank" class="rl p">Book mock \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Interviewing.io</div><div class="rc-desc">Paid mocks with real FAANG engineers. Use for weeks 13\'9615 before Tier 1.</div><div class="rc-links"><a href="https://interviewing.io" target="_blank" class="rl p">Book mock \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Interview Kickstart</div><div class="rc-desc">India-focused platform with FAANG instructors. Great for behavioural rounds.</div><div class="rc-links"><a href="https://interviewkickstart.com" target="_blank" class="rl">Website \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Levels.fyi</div><div class="rc-desc">Comp benchmarking + question bank. Check before every negotiation call.</div><div class="rc-links"><a href="https://www.levels.fyi" target="_blank" class="rl p">Levels \uc0\u8599 </a><a href="https://www.levels.fyi/resources/interview-questions.html" target="_blank" class="rl">Questions \u8599 </a></div></div>\
+  </div>\
+  <div class="rs-t">Full-stack & 2025 trends</div>\
+  <div class="rg">\
+    <div class="rc"><div class="rc-nm">React docs + RSC</div><div class="rc-desc">Hooks, reconciliation, Server Components, App Router. Airbnb asks this.</div><div class="rc-links"><a href="https://react.dev/learn" target="_blank" class="rl p">react.dev \uc0\u8599 </a><a href="https://nextjs.org/docs" target="_blank" class="rl">Next.js \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">Web performance</div><div class="rc-desc">Core Web Vitals, lazy loading, bundle splitting. Google loves asking this.</div><div class="rc-links"><a href="https://web.dev/learn/performance/" target="_blank" class="rl p">web.dev \uc0\u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">AI/LLM integration (2025)</div><div class="rc-desc">RAG systems, vector DBs, streaming APIs \'97 the 2025 full-stack frontier.</div><div class="rc-links"><a href="https://docs.anthropic.com" target="_blank" class="rl">Anthropic \uc0\u8599 </a><a href="https://platform.openai.com/docs" target="_blank" class="rl">OpenAI \u8599 </a></div></div>\
+    <div class="rc"><div class="rc-nm">TypeScript deep types</div><div class="rc-desc">Generics, conditional types, utility types. Now a baseline at Airbnb, Meta, Flipkart.</div><div class="rc-links"><a href="https://www.typescriptlang.org/docs/handbook/" target="_blank" class="rl p">TS Handbook \uc0\u8599 </a><a href="https://github.com/type-challenges/type-challenges" target="_blank" class="rl">Challenges \u8599 </a></div></div>\
+  </div>\
+</section>\
+\
+<!-- HOW TO USE -->\
+<section id="page-howto" class="page">\
+  <div class="ph"><h1>How to use PrepOS</h1><p>Your exact daily operating system \'97 what to do, when, and how to think through every problem.</p></div>\
+\
+  <!-- THE NON-NEGOTIABLE DAILY TRUTH -->\
+  <div style="background:var(--redbg);border:1px solid var(--redbr);border-radius:var(--r2);padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--red);line-height:1.7">\
+    <strong>One thing to get straight first:</strong> <span style="color:var(--tx2)">You do DSA <strong style="color:var(--tx)">every single day</strong> \'97 Monday through Sunday, no exceptions. The day-by-day guide below tells you what <em>else</em> to do on each day in addition to DSA. DSA is the daily baseline. Everything else is layered on top.</span>\
+  </div>\
+\
+  <!-- DAILY 2.5HR SCHEDULE -->\
+  <div class="card" style="border-left:3px solid var(--grn);margin-bottom:12px">\
+    <div class="card-t" style="color:var(--grn)">\uc0\u9200  Your 2.5-hour daily schedule \'97 every single day</div>\
+    <div style="display:flex;flex-direction:column">\
+\
+      <div style="display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--bd)">\
+        <div style="min-width:96px;font-family:var(--mono);font-size:12px;color:var(--grn);font-weight:600;padding-top:2px;flex-shrink:0">6:00\'967:00 AM<br><span style="color:var(--tx3);font-weight:400">1 hour</span></div>\
+        <div style="flex:1">\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">\uc0\u55358 \u56800  DSA \'97 solve 1\'962 problems</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Open <strong style="color:var(--ind)">Weekly Plans tab</strong> \uc0\u8594  find today's day block \u8594  solve the next 1\'962 unsolved problems. Morning brain is at its sharpest for pattern recognition. No music, no notifications.<br>\
+          <span style="color:var(--tx3)">Easy = 15 min max. Medium = 30\'9640 min. Hard = 45\'9660 min. See the problem-solving method below for exactly how to approach each one.</span></div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--bd)">\
+        <div style="min-width:96px;font-family:var(--mono);font-size:12px;color:var(--amb);font-weight:600;padding-top:2px;flex-shrink:0">After solving<br><span style="color:var(--tx3);font-weight:400">3\'965 min</span></div>\
+        <div style="flex:1">\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">\uc0\u55357 \u56541  Write your note immediately</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Click \uc0\u9998  on the problem. Write: <strong style="color:var(--tx)">(1) pattern name, (2) key insight that unlocked it, (3) one edge case to remember.</strong> This takes 3 minutes and is worth 10\'d7 more than re-reading a solution tomorrow.</div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--bd)">\
+        <div style="min-width:96px;font-family:var(--mono);font-size:12px;color:var(--red);font-weight:600;padding-top:2px;flex-shrink:0">7:00\'967:15 AM<br><span style="color:var(--tx3);font-weight:400">15 min</span></div>\
+        <div style="flex:1">\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">\uc0\u55357 \u56580  Clear spaced reviews (if any)</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Open <strong style="color:var(--ind)">Review Due tab</strong>. If problems are due, re-solve 1\'962 before work. Skip this and your retention drops to 20% within a week. The review list builds from week 2 onwards \'97 never let it go above 10.</div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--bd)">\
+        <div style="min-width:96px;font-family:var(--mono);font-size:12px;color:var(--pur);font-weight:600;padding-top:2px;flex-shrink:0">8:00\'969:00 PM<br><span style="color:var(--tx3);font-weight:400">1 hour</span></div>\
+        <div style="flex:1">\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">\uc0\u55356 \u57303 \u65039  System design / extra DSA</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">\
+            <strong style="color:var(--tx)">Weeks 1\'968:</strong> Find the SD task in today's day block (purple SD badge) and complete it \'97 read the link, watch the video, write 5 key points by hand.<br>\
+            <strong style="color:var(--tx)">Weeks 9\'9613:</strong> Full SD walkthrough \'97 set a 40-min timer, design the system on paper using the 7-step framework, then compare with the reference.<br>\
+            <strong style="color:var(--tx)">Weeks 14\'9618:</strong> Mock interview prep \'97 Pramp, Interviewing.io, or behavioural STAR practice.\
+          </div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:11px 0">\
+        <div style="min-width:96px;font-family:var(--mono);font-size:12px;color:var(--grn);font-weight:600;padding-top:2px;flex-shrink:0">9:00 PM<br><span style="color:var(--tx3);font-weight:400">2 min</span></div>\
+        <div style="flex:1">\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">\uc0\u9989  Mark today done + log time</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Open <strong style="color:var(--ind)">Dashboard</strong> \uc0\u8594  click "Mark today as done" \u8594  open <strong style="color:var(--ind)">Time Tracker</strong> \u8594  log your session minutes. Seeing the streak and weekly hours is what keeps you consistent on hard days.</div>\
+        </div>\
+      </div>\
+\
+    </div>\
+  </div>\
+\
+  <!-- DAILY DSA + WHAT ELSE -->\
+  <div class="card" style="margin-bottom:12px">\
+    <div class="card-t">\uc0\u55357 \u56517  Day-by-day guide \'97 DSA is every morning, what changes is the evening</div>\
+\
+    <div style="background:var(--redbg);border:1px solid var(--redbr);border-radius:var(--r);padding:10px 13px;font-size:12px;color:var(--red);margin-bottom:13px;line-height:1.6">\
+      <strong>DSA problems happen every single morning, 7 days a week \'97 no exceptions.</strong> The daily schedule below shows the full picture: morning DSA is fixed, and each evening has a different secondary focus that compounds over 18 weeks.\
+    </div>\
+\
+    <!-- FIXED MORNING BLOCK -->\
+    <div style="background:var(--grnbg);border:1px solid var(--grnbr);border-radius:var(--r);padding:12px 14px;margin-bottom:12px">\
+      <div style="font-size:12px;font-weight:700;color:var(--grn);margin-bottom:8px">\uc0\u55356 \u57093  Every morning 6:00\'967:15 AM \'97 identical every day, no exceptions</div>\
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--tx2)">\
+        <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);color:var(--grn);min-width:72px;flex-shrink:0;font-size:11px">6:00\'967:00</span><span><strong style="color:var(--tx)">Weekly Plans tab</strong> \uc0\u8594  open today's day block \u8594  solve 1\'962 problems. Timer running. Zero distractions.</span></div>\
+        <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);color:var(--grn);min-width:72px;flex-shrink:0;font-size:11px">After solve</span><span><strong style="color:var(--tx)">Click \uc0\u9998 </strong> on the problem \u8594  write pattern name + key insight in 3 minutes. Every. Single. Time.</span></div>\
+        <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);color:var(--grn);min-width:72px;flex-shrink:0;font-size:11px">7:00\'967:15</span><span><strong style="color:var(--tx)">Review Due tab</strong> \uc0\u8594  if anything is due for spaced repetition, re-solve it now. Skip only if queue is empty.</span></div>\
+        <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);color:var(--grn);min-width:72px;flex-shrink:0;font-size:11px">If stuck</span><span><strong style="color:var(--tx)">Mistake Log tab</strong> \uc0\u8594  log the problem, pattern missed, key lesson. 3 minutes now saves an hour later.</span></div>\
+      </div>\
+    </div>\
+\
+    <div style="font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Evening focus \'97 changes each day (8:00\'969:00 PM)</div>\
+\
+    <div style="display:flex;flex-direction:column;gap:5px">\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">MON</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">Plan week</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Weekly Plans tab</strong> \'97 read that week's tip and scan all problems ahead. Open <strong style="color:var(--tx)">Company Qs</strong> for your top target and check which patterns this week overlaps with. 30 min. Knowing what's coming makes the morning sessions faster.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">TUE</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">Reinforce</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Cheat Sheet \uc0\u8594  Patterns tab</strong> \'97 find the pattern(s) you used this morning and re-read the template and when-to-use. Then re-read yesterday's notes. Reinforcing within 24 hours locks in retention. 30 min.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">WED</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">System design</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Weekly Plans tab \uc0\u8594  SD task (purple badge)</strong> \'97 open that week's system design task. Weeks 1\'968: read the linked article/watch the video, write 5 bullet notes. Weeks 9+: set a 40-min timer, design on paper using 7-step framework, then check resource. 45 min.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">THU</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">Mistakes + trends</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Mistake Log tab</strong> \'97 review every mistake from this week. Look for repeating patterns \'97 that is your personal gap. Fix one gap deeply rather than skimming all. Then open <strong style="color:var(--tx)">2025 Trends</strong> \'97 read 1 card, link it to a real system you use. 45 min total.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">FRI</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">Mock interview</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Morning: Dashboard \uc0\u8594  random problem</strong> \'97 35-min timed attempt instead of Weekly Plans. Simulates real interview. From <strong style="color:var(--tx)">week 5 onwards</strong>: 1 Pramp mock every Friday evening (camera on, talk out loud). After mock: immediately log what you froze on in <strong style="color:var(--tx)">Mistake Log</strong>.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">SAT</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">SD full session</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Morning: Weekly Plans</strong> \'97 2 problems (catch up if behind). <strong style="color:var(--tx)">11 AM: second SD design</strong> \'97 full timed 40-min session, paper + pen, 7-step framework. <strong style="color:var(--tx)">Evening: Applications + Interviews tabs</strong> \'97 update pipeline, send referral messages, check countdowns. From week 10: apply to Tier 2 companies Saturday evenings.\
+        </div>\
+      </div>\
+\
+      <div style="display:grid;grid-template-columns:90px 1fr;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">\
+        <div style="background:var(--s3);padding:10px 12px;border-right:1px solid var(--bd);display:flex;flex-direction:column;justify-content:center">\
+          <div style="font-size:12px;font-weight:700;color:var(--tx)">SUN</div>\
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px">Rest + clear</div>\
+        </div>\
+        <div style="padding:9px 13px;font-size:12px;color:var(--tx2);line-height:1.65">\
+          <strong style="color:var(--tx)">Morning: Review Due tab</strong> \'97 clear full backlog, re-solve everything due. 30\'9645 min. Then <strong style="color:var(--tx)">Dashboard</strong> \'97 check streak, time logged, phase progress, plan next week. <strong style="color:var(--tx)">1 easy/medium max</strong> \'97 no hard problems Sunday. Your brain consolidates patterns during rest. Skipping rest hurts retention more than skipping a problem.\
+        </div>\
+      </div>\
+\
+    </div>\
+  </div>\
+\
+<div class="card" style="border-left:3px solid var(--ind);margin-bottom:12px">\
+    <div class="card-t" style="color:var(--ind)">\uc0\u55357 \u56589  How to solve any DSA problem \'97 the exact thinking process</div>\
+    <div style="background:var(--ambbg);border:1px solid var(--ambbr);border-radius:var(--r3);padding:9px 12px;font-size:12px;color:var(--amb);margin-bottom:14px;line-height:1.6">\
+      This process works for every problem at every difficulty. Follow it in order every time \'97 especially in real interviews. Interviewers score your thinking, not just your code.\
+    </div>\
+\
+    <div style="display:flex;flex-direction:column;gap:0">\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--indbg);border:1px solid var(--indbr);color:var(--ind);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">Read and restate \'97 2 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Say the problem out loud in your own words. <strong style="color:var(--tx)">Ask clarifying questions before writing any code:</strong> What are the constraints? Can input be empty? Negative numbers? Duplicates? Sorted or unsorted? What should we return if no answer exists?<br>\
+          <span style="color:var(--tx3)">In an interview this is mandatory. In practice it forces you to actually understand the problem before jumping to a solution.</span></div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ambbg);border:1px solid var(--ambbr);color:var(--amb);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">Brute force first \'97 always, out loud \'97 3 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7"><strong style="color:var(--tx)">Do not skip this step.</strong> Say: <em style="color:var(--grn)">"The naive approach would be..."</em> and describe it without coding it. Usually O(n\'b2) or O(n\'b3). This does three things: proves you understand the problem, gives you a baseline to optimise from, and impresses interviewers who see most candidates skip straight to a broken optimised solution.<br>\
+          <span style="color:var(--tx3)">Example: Two Sum brute force = check every pair of numbers = O(n\'b2) time O(1) space. State this explicitly.</span></div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--redbg);border:1px solid var(--redbr);color:var(--red);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">Spot the bottleneck in your brute force \'97 3 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Look at your brute force and ask: <strong style="color:var(--tx)">"Where is the repeated work?"</strong> This single question unlocks the optimisation. The repeated work maps directly to a pattern:<br>\
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Nested loops scanning same subarray</span><br><span style="color:var(--tx3)">\uc0\u8594  Sliding window or two pointers</span></div>\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Re-computing the same subproblem</span><br><span style="color:var(--tx3)">\uc0\u8594  Dynamic programming</span></div>\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Searching in sorted data linearly</span><br><span style="color:var(--tx3)">\uc0\u8594  Binary search</span></div>\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Looking up "have I seen this before"</span><br><span style="color:var(--tx3)">\uc0\u8594  HashMap / HashSet</span></div>\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Need min/max of current window</span><br><span style="color:var(--tx3)">\uc0\u8594  Monotonic stack/deque or heap</span></div>\
+            <div style="background:var(--s3);border-radius:var(--r3);padding:8px 10px;font-size:11px"><span style="color:var(--grn)">Traversing connected nodes/paths</span><br><span style="color:var(--tx3)">\uc0\u8594  DFS / BFS / Union-Find</span></div>\
+          </div></div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--purbg);border:1px solid var(--purbr);color:var(--pur);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">State the optimal approach before coding \'97 2 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Say: <em style="color:var(--grn)">"I'll use a sliding window with a hashmap. Time O(n), Space O(k) where k is alphabet size."</em> State the complexity before writing a single line. This proves you know what you're doing and gives the interviewer a chance to correct you before you go down a wrong path for 20 minutes.</div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grnbg);border:1px solid var(--grnbr);color:var(--grn);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">Code it \'97 talk while you write \'97 15\'9625 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Now write the code. <strong style="color:var(--tx)">Talk while you type.</strong> Say what you're doing: <em style="color:var(--grn)">"I'm initialising left pointer at 0, I'll expand right on each iteration, when the window becomes invalid I shrink from the left..."</em><br>\
+          Silence during coding = the interviewer can't tell if you're stuck or thinking. Keep narrating. Write clean, readable variable names \'97 not <code style="background:var(--s3);padding:1px 5px;border-radius:3px;font-size:11px">x</code> and <code style="background:var(--s3);padding:1px 5px;border-radius:3px;font-size:11px">y</code>, use <code style="background:var(--s3);padding:1px 5px;border-radius:3px;font-size:11px">left</code> and <code style="background:var(--s3);padding:1px 5px;border-radius:3px;font-size:11px">max_window</code>.</div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd)">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--ambbg);border:1px solid var(--ambbr);color:var(--amb);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">Test with the example, then your own edge case \'97 5 minutes</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Dry-run the given example on paper. Then test your own edge case: <strong style="color:var(--tx)">empty input, single element, all duplicates, already sorted, all same value, negative numbers.</strong> Catch bugs before the interviewer does \'97 this alone separates good candidates from great ones.</div>\
+        </div>\
+      </div>\
+\
+      <div style="display:flex;gap:14px;padding:12px 0">\
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grnbg);border:1px solid var(--grnbr);color:var(--grn);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">7</div>\
+        <div>\
+          <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px">After solving \'97 write the pattern in your note</div>\
+          <div style="font-size:12px;color:var(--tx2);line-height:1.7">Immediately click \uc0\u9998  and write: <strong style="color:var(--tx)">Pattern: [name]. Key insight: [one sentence]. Edge case: [one case].</strong> After solving 50 problems this way, you will have a personalised pattern library that is worth more than any paid course. The pattern list is small \'97 there are about 15 patterns total. Every new problem is just a variant of one you've seen.</div>\
+        </div>\
+      </div>\
+\
+    </div>\
+  </div>\
+\
+  <!-- TIME PER DIFFICULTY -->\
+  <div class="card" style="margin-bottom:12px">\
+    <div class="card-t">\uc0\u9201  How long to spend per problem</div>\
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px">\
+      <div style="background:var(--grnbg);border:1px solid var(--grnbr);border-radius:var(--r);padding:12px;text-align:center">\
+        <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--grn)">15 min</div>\
+        <div style="font-size:11px;font-weight:600;color:var(--grn);margin:3px 0">Easy problems</div>\
+        <div style="font-size:11px;color:var(--tx2);line-height:1.5">If you can't solve in 15 min, look at hint only \'97 never full solution first. Struggling 5 extra minutes is more valuable than reading the answer.</div>\
+      </div>\
+      <div style="background:var(--ambbg);border:1px solid var(--ambbr);border-radius:var(--r);padding:12px;text-align:center">\
+        <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--amb)">30\'9640 min</div>\
+        <div style="font-size:11px;font-weight:600;color:var(--amb);margin:3px 0">Medium problems</div>\
+        <div style="font-size:11px;color:var(--tx2);line-height:1.5">20 min struggle \uc0\u8594  hint if stuck \u8594  10 more min \u8594  then read solution. Never copy-paste the solution. Understand it fully, close it, retype from memory.</div>\
+      </div>\
+      <div style="background:var(--redbg);border:1px solid var(--redbr);border-radius:var(--r);padding:12px;text-align:center">\
+        <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--red)">45\'9660 min</div>\
+        <div style="font-size:11px;font-weight:600;color:var(--red);margin:3px 0">Hard problems</div>\
+        <div style="font-size:11px;color:var(--tx2);line-height:1.5">25 min genuine attempt \uc0\u8594  read editorial concept only (not code) \u8594  implement yourself. Re-solve 3 days later without looking at your solution.</div>\
+      </div>\
+      <div style="background:var(--purbg);border:1px solid var(--purbr);border-radius:var(--r);padding:12px;text-align:center">\
+        <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--pur)">40 min</div>\
+        <div style="font-size:11px;font-weight:600;color:var(--pur);margin:3px 0">SD tasks</div>\
+        <div style="font-size:11px;color:var(--tx2);line-height:1.5">Set a hard timer. Design on paper using the 7-step framework. No copy-paste from the reference. Writing the diagram by hand IS the learning.</div>\
+      </div>\
+    </div>\
+  </div>\
+\
+  <!-- PHASE GUIDE -->\
+  <div class="card" style="margin-bottom:12px">\
+    <div class="card-t">\uc0\u55357 \u56826 \u65039  Primary focus by phase \'97 DSA is always constant</div>\
+    <div style="display:flex;flex-direction:column;gap:0">\
+      <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bd);align-items:flex-start">\
+        <div style="min-width:96px;font-size:11px;font-weight:600;color:var(--grn);background:var(--grnbg);padding:3px 8px;border-radius:10px;text-align:center;flex-shrink:0">Weeks 1\'964<br><span style="font-weight:400;color:var(--tx3)">Foundation</span></div>\
+        <div style="font-size:12px;color:var(--tx2);line-height:1.7"><strong style="color:var(--tx)">Primary tab: Weekly Plans.</strong> After every problem: open Cheat Sheet \uc0\u8594  Patterns and find which pattern it was. Avoid mocks \'97 too early, builds bad habits. Start SD reading on Week 1 Day 3 even if it feels premature. You're building intuition, not knowledge yet.</div>\
+      </div>\
+      <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bd);align-items:flex-start">\
+        <div style="min-width:96px;font-size:11px;font-weight:600;color:var(--ind);background:var(--indbg);padding:3px 8px;border-radius:10px;text-align:center;flex-shrink:0">Weeks 5\'968<br><span style="font-weight:400;color:var(--tx3)">Core DSA</span></div>\
+        <div style="font-size:12px;color:var(--tx2);line-height:1.7"><strong style="color:var(--tx)">Add Review Due every morning.</strong> By week 5 you'll have 20+ problems in the review queue \'97 clear them before new problems. Open Company Qs on weekends and mark which problems overlap with your targets. Start Pramp mocks from Week 5 Friday \'97 1 per week minimum.</div>\
+      </div>\
+      <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--bd);align-items:flex-start">\
+        <div style="min-width:96px;font-size:11px;font-weight:600;color:var(--amb);background:var(--ambbg);padding:3px 8px;border-radius:10px;text-align:center;flex-shrink:0">Weeks 9\'9613<br><span style="font-weight:400;color:var(--tx3)">Advanced</span></div>\
+        <div style="font-size:12px;color:var(--tx2);line-height:1.7"><strong style="color:var(--tx)">Mistake Log becomes your most important tab.</strong> Review it every Thursday. Log every problem you got stuck on. Open 2025 Trends \'97 1 card per week, connect it to an SD you've already designed. Apply to Tier 2 companies from Week 10.</div>\
+      </div>\
+      <div style="display:flex;gap:12px;padding:10px 0;align-items:flex-start">\
+        <div style="min-width:96px;font-size:11px;font-weight:600;color:var(--pur);background:var(--purbg);padding:3px 8px;border-radius:10px;text-align:center;flex-shrink:0">Weeks 14\'9618<br><span style="font-weight:400;color:var(--tx3)">Execution</span></div>\
+        <div style="font-size:12px;color:var(--tx2);line-height:1.7"><strong style="color:var(--tx)">Interviews tab is now your anchor.</strong> Apply to Tier 1 from Week 14. Each morning: check countdowns, run a mock, review SD framework. Track pipeline in Applications kanban. Having 2+ competing offers = your only negotiating leverage.</div>\
+      </div>\
+    </div>\
+  </div>\
+\
+  <!-- IRON RULES -->\
+  <div class="card" style="border-left:3px solid var(--red)">\
+    <div class="card-t" style="color:var(--red)">\uc0\u9889  Rules that cannot be broken</div>\
+    <div style="display:flex;flex-direction:column;gap:0">\
+      <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">1</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">DSA every single day, no exceptions.</strong> Not 5 days a week. Every day. Your brain consolidates patterns during sleep \'97 daily practice is neurologically superior to weekend cramming.</span>\
+      </div>\
+      <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">2</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">Minimum 20 minutes struggling before any hint.</strong> The struggle is the learning. Skipping it means you watched someone else solve it \'97 you solved nothing.</span>\
+      </div>\
+      <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">3</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">Write a note on every single problem.</strong> Pattern + insight + edge case. 3 minutes. After 50 problems this becomes your personalised playbook.</span>\
+      </div>\
+      <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">4</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">Never skip two days in a row.</strong> One missed day is life. Two is a habit. Three is you starting from scratch psychologically.</span>\
+      </div>\
+      <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">5</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">From week 5: 1 Pramp mock every week.</strong> Camera on. Talk out loud. The gap between knowing and delivering under pressure only closes through actual timed practice with another person watching.</span>\
+      </div>\
+      <div style="display:flex;gap:10px;padding:8px 0;font-size:12px;align-items:flex-start">\
+        <span style="font-size:15px;flex-shrink:0;width:22px;text-align:center">6</span>\
+        <span style="color:var(--tx2)"><strong style="color:var(--tx)">Apply from week 10, not week 18.</strong> You will never feel ready. Apply to Tier 2 from week 10, Tier 1 from week 14. Real interviews are your best preparation for more interviews.</span>\
+      </div>\
+    </div>\
+  </div>\
+\
+</section>\
+\
+\
+</main></div>\
+\
+<!-- NOTE MODAL -->\
+<div class="mo" id="note-mo">\
+  <div class="mo-box">\
+    <div class="mo-t"><span id="mo-title">Notes</span><button class="mo-x" onclick="closeN()">\'d7</button></div>\
+    <textarea class="mo-ta" id="mo-ta" placeholder="Key insight, pattern identified, edge cases, what tripped you up, when to revisit..."></textarea>\
+    <div style="font-size:11px;color:var(--tx3);margin-top:4px">Saves and shows inline under the problem row.</div>\
+    <div class="mo-f">\
+      <button class="btn btn-d" onclick="clearN()">Clear</button>\
+      <button class="btn btn-g" onclick="closeN()">Cancel</button>\
+      <button class="btn btn-p" onclick="saveN()">Save note</button>\
+    </div>\
+  </div>\
+</div>\
+<div class="toast" id="toast"></div>\
+<script>\
+// REVISED ORDER - PepCoding aligned + strict 2 problems/day\
+// Week structure: 7 days = 14 slots (2/day)\
+// Day 1-5 = DSA problems (2/day = 10 problems)\
+// Day 6 = 1 harder problem + 1 SD read (evening)\
+// Day 7 = SD design (full walkthrough)\
+\
+const WEEKS=[\
+// \uc0\u9472 \u9472 \u9472  PHASE 1: FOUNDATION (Weeks 1\'965) \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \
+\{id:1,title:"Arrays, Strings, Two Pointers",phase:"Phase 1 \'97 Foundation",pc:"#22c55e",\
+tip:"Foundation week. Every array pattern is either a running state (Kadane's, buy-sell) or a pointer trick (two pointer, prefix sum). Don't move forward until these feel automatic.",\
+days:[\
+  \{label:"Day 1",type:"Arrays \'97 warm up",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"1-1-1",n:"Two Sum",d:"e",lc:"1",url:"https://leetcode.com/problems/two-sum/",note:"HashMap: value\uc0\u8594 index. Template for all hashmap problems. Learn O(n) approach cold."\},\
+    \{id:"1-1-2",n:"Best Time to Buy and Sell Stock",d:"e",lc:"121",url:"https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",note:"Track running minimum. Pattern: one-pass with running state."\}]\},\
+  \{label:"Day 2",type:"Arrays \'97 running state",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"1-2-1",n:"Maximum Subarray (Kadane's)",d:"m",lc:"53",url:"https://leetcode.com/problems/maximum-subarray/",note:"Reset when prefix goes negative. Most important array pattern. Learn cold."\},\
+    \{id:"1-2-2",n:"Maximum Product Subarray",d:"m",lc:"152",url:"https://leetcode.com/problems/maximum-product-subarray/",note:"Track both max and min (neg\'d7neg=pos). Extension of Kadane's \'97 same idea."\}]\},\
+  \{label:"Day 3",type:"Two pointers",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"1-3-1",n:"Valid Palindrome",d:"e",lc:"125",url:"https://leetcode.com/problems/valid-palindrome/",note:"Two pointers from ends. Skip non-alphanumeric. Template problem."\},\
+    \{id:"1-3-2",n:"3Sum",d:"m",lc:"15",url:"https://leetcode.com/problems/3sum/",note:"Sort + fix one + two pointer for rest. Careful with duplicate skipping."\}]\},\
+  \{label:"Day 4",type:"Two pointers \'97 advanced",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"1-4-1",n:"Container With Most Water",d:"m",lc:"11",url:"https://leetcode.com/problems/container-with-most-water/",note:"Always move shorter pointer. Ask yourself: why is this provably correct?"\},\
+    \{id:"1-4-2",n:"Trapping Rain Water",d:"h",lc:"42",url:"https://leetcode.com/problems/trapping-rain-water/",note:"Two pointer: track maxLeft, maxRight. min(maxL,maxR)-height[i] = water at i."\}]\},\
+  \{label:"Day 5",type:"Strings + prefix sum",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"1-5-1",n:"Subarray Sum Equals K",d:"m",lc:"560",url:"https://leetcode.com/problems/subarray-sum-equals-k/",note:"Prefix sum + HashMap. Count prefix[j]-prefix[i]=k. Very frequent at Flipkart."\},\
+    \{id:"1-5-2",n:"Sort Colors (Dutch National Flag)",d:"m",lc:"75",url:"https://leetcode.com/problems/sort-colors/",note:"3-way partition: lo/mid/hi. Dijkstra's DNF algorithm. In-place O(n)."\}]\},\
+  \{label:"Day 6",type:"Harder problem + SD read",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"1-6-1",n:"Product of Array Except Self",d:"m",lc:"238",url:"https://leetcode.com/problems/product-of-array-except-self/",note:"Prefix \'d7 suffix. No division. Google top-asked. Spend 30 min before hints."\},\
+    \{id:"1-6-sd",n:"SD read: Scalability + CAP theorem basics (SD Primer intro)",d:"s",url:"https://github.com/donnemartin/system-design-primer#system-design-topics-start-here"\}]\},\
+  \{label:"Day 7",type:"SD day + review",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"1-7-sd",n:"SD: Design URL Shortener \'97 write on paper using 7-step framework",d:"s",url:"https://github.com/donnemartin/system-design-primer#design-pastebin-com-or-bit-ly"\}]\}\
+]\},\
+\
+\{id:2,title:"Recursion & Backtracking",phase:"Phase 1 \'97 Foundation",pc:"#22c55e",\
+tip:"PepCoding teaches recursion before everything else \'97 trees, graphs, and DP all depend on it. Learn the 3-step recursion pattern: base case, hypothesis, induction. Backtracking is just recursion with undo.",\
+days:[\
+  \{label:"Day 8",type:"Recursion fundamentals",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"2-1-1",n:"Fibonacci Number",d:"e",lc:"509",url:"https://leetcode.com/problems/fibonacci-number/",note:"Top-down vs bottom-up. Understand time complexity of naive recursion: O(2^n). Learn both."\},\
+    \{id:"2-1-2",n:"Power of Two",d:"e",lc:"231",url:"https://leetcode.com/problems/power-of-two/",note:"Recursive: n>0 && isPow(n/2). Also bit trick: n&(n-1)==0. Know both."\}]\},\
+  \{label:"Day 9",type:"Backtracking \'97 subsets",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"2-2-1",n:"Subsets",d:"m",lc:"78",url:"https://leetcode.com/problems/subsets/",note:"Template: choose\uc0\u8594 recurse\u8594 unchoose. 2^n subsets. Foundation of all backtracking."\},\
+    \{id:"2-2-2",n:"Subsets II (with duplicates)",d:"m",lc:"90",url:"https://leetcode.com/problems/subsets-ii/",note:"Sort first. Skip duplicate at same recursion level. Critical dedup technique."\}]\},\
+  \{label:"Day 10",type:"Backtracking \'97 combinations",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"2-3-1",n:"Combination Sum (reuse allowed)",d:"m",lc:"39",url:"https://leetcode.com/problems/combination-sum/",note:"Can reuse: pass same index. Prune if remaining < 0."\},\
+    \{id:"2-3-2",n:"Combination Sum II (no reuse)",d:"m",lc:"40",url:"https://leetcode.com/problems/combination-sum-ii/",note:"Sort + skip same value at same level. Most important variant."\}]\},\
+  \{label:"Day 11",type:"Backtracking \'97 permutations",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"2-4-1",n:"Permutations",d:"m",lc:"46",url:"https://leetcode.com/problems/permutations/",note:"used[] array OR swap-in-place. At each level pick any unused element."\},\
+    \{id:"2-4-2",n:"Permutations II (duplicates)",d:"m",lc:"47",url:"https://leetcode.com/problems/permutations-ii/",note:"Sort + skip if same value AND prev not used. Tricky condition \'97 understand why."\}]\},\
+  \{label:"Day 12",type:"Backtracking on grids",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"2-5-1",n:"Word Search",d:"m",lc:"79",url:"https://leetcode.com/problems/word-search/",note:"DFS on grid. Mark visited, DFS, unmark. Classic backtracking on 2D."\},\
+    \{id:"2-5-2",n:"Letter Combinations of Phone Number",d:"m",lc:"17",url:"https://leetcode.com/problems/letter-combinations-of-a-phone-number/"\}]\},\
+  \{label:"Day 13",type:"Hard backtracking + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"2-6-1",n:"N-Queens",d:"h",lc:"51",url:"https://leetcode.com/problems/n-queens/",note:"3 sets: cols, diag, anti-diag. Row by row placement. Classic constraint problem."\},\
+    \{id:"2-6-sd",n:"SD read: DNS + Load Balancing (L4 vs L7)",d:"s",url:"https://github.com/donnemartin/system-design-primer#domain-name-system"\}]\},\
+  \{label:"Day 14",type:"SD day + review",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"2-7-sd",n:"SD: Design a Rate Limiter \'97 full walkthrough on paper",d:"s",url:"https://github.com/donnemartin/system-design-primer#rate-limiter"\}]\}\
+]\},\
+\
+\{id:3,title:"Binary Search \'97 all variants",phase:"Phase 1 \'97 Foundation",pc:"#22c55e",\
+tip:"Binary search has one template. lo, hi, mid, condition. Every variant is this template with a different feasibility check. The 'binary search on answer space' pattern is asked constantly at Google and Amazon.",\
+days:[\
+  \{label:"Day 15",type:"Classic variants",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"3-1-1",n:"Binary Search",d:"e",lc:"704",url:"https://leetcode.com/problems/binary-search/",note:"THE template. lo=0, hi=n-1, while lo<=hi, mid=(lo+hi)//2. Learn cold."\},\
+    \{id:"3-1-2",n:"Search in Rotated Sorted Array",d:"m",lc:"33",url:"https://leetcode.com/problems/search-in-rotated-sorted-array/",note:"One half always sorted. Check which half, then binary search it."\}]\},\
+  \{label:"Day 16",type:"Find boundary",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"3-2-1",n:"Find First and Last Position in Sorted Array",d:"m",lc:"34",url:"https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",note:"Two binary searches: leftmost and rightmost. Classic boundary finding."\},\
+    \{id:"3-2-2",n:"Find Minimum in Rotated Sorted Array",d:"m",lc:"153",url:"https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"\}]\},\
+  \{label:"Day 17",type:"Search on answer space",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"3-3-1",n:"Koko Eating Bananas",d:"m",lc:"875",url:"https://leetcode.com/problems/koko-eating-bananas/",note:"Binary search on speed (answer). Feasibility = can eat all in H hours. Template."\},\
+    \{id:"3-3-2",n:"Capacity To Ship Packages Within D Days",d:"m",lc:"1011",url:"https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",note:"Same pattern as Koko. Binary search on capacity."\}]\},\
+  \{label:"Day 18",type:"Hard binary search",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"3-4-1",n:"Median of Two Sorted Arrays",d:"h",lc:"4",url:"https://leetcode.com/problems/median-of-two-sorted-arrays/",note:"Binary search on partition. O(log(min(m,n))). Google top-asked hard."\},\
+    \{id:"3-4-2",n:"Find Peak Element",d:"m",lc:"162",url:"https://leetcode.com/problems/find-peak-element/",note:"Move toward higher neighbour. Why? A peak must exist in that direction."\}]\},\
+  \{label:"Day 19",type:"2D + time-based",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"3-5-1",n:"Search a 2D Matrix",d:"m",lc:"74",url:"https://leetcode.com/problems/search-a-2d-matrix/",note:"Treat as 1D sorted array. Binary search on flattened index."\},\
+    \{id:"3-5-2",n:"Time Based Key-Value Store",d:"m",lc:"981",url:"https://leetcode.com/problems/time-based-key-value-store/"\}]\},\
+  \{label:"Day 20",type:"Hard + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"3-6-1",n:"Split Array Largest Sum",d:"h",lc:"410",url:"https://leetcode.com/problems/split-array-largest-sum/",note:"Binary search on answer. Same template as Koko and Ship Packages."\},\
+    \{id:"3-6-sd",n:"SD read: Caching strategies + CDN basics",d:"s",url:"https://github.com/donnemartin/system-design-primer#content-delivery-network"\}]\},\
+  \{label:"Day 21",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"3-7-sd",n:"SD: Design Search Autocomplete / Typeahead \'97 timed 40 min",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\}\
+]\},\
+\
+\{id:4,title:"Sorting + Sliding Window",phase:"Phase 1 \'97 Foundation",pc:"#22c55e",\
+tip:"Sliding window is the single most-asked pattern at Flipkart and Uber. Learn the expand-shrink template until you can code it without thinking. The variable-size window with hashmap solves 80% of substring problems.",\
+days:[\
+  \{label:"Day 22",type:"Sorting algorithms",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"4-1-1",n:"Merge Intervals",d:"m",lc:"56",url:"https://leetcode.com/problems/merge-intervals/",note:"Sort by start. Merge overlapping. Baseline interval problem \'97 must know."\},\
+    \{id:"4-1-2",n:"Sort Colors (revisit with mergesort insight)",d:"m",lc:"75",url:"https://leetcode.com/problems/sort-colors/",note:"Implement full mergesort on this. Understand divide-conquer recursion."\}]\},\
+  \{label:"Day 23",type:"Sliding window \'97 fixed",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"4-2-1",n:"Permutation in String",d:"m",lc:"567",url:"https://leetcode.com/problems/permutation-in-string/",note:"Fixed-size window + frequency match. Template for fixed window problems."\},\
+    \{id:"4-2-2",n:"Find All Anagrams in a String",d:"m",lc:"438",url:"https://leetcode.com/problems/find-all-anagrams-in-a-string/"\}]\},\
+  \{label:"Day 24",type:"Sliding window \'97 variable",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"4-3-1",n:"Longest Substring Without Repeating Characters",d:"m",lc:"3",url:"https://leetcode.com/problems/longest-substring-without-repeating-characters/",note:"THE variable window template. Expand right, shrink left when invalid."\},\
+    \{id:"4-3-2",n:"Longest Repeating Character Replacement",d:"m",lc:"424",url:"https://leetcode.com/problems/longest-repeating-character-replacement/",note:"Key: window_size - max_freq \uc0\u8804  k. Spend 40 min \'97 this is tricky."\}]\},\
+  \{label:"Day 25",type:"Sliding window \'97 hard",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"4-4-1",n:"Minimum Window Substring",d:"h",lc:"76",url:"https://leetcode.com/problems/minimum-window-substring/",note:"Two-pointer + need/have counts. Google/Meta top-asked. Budget 50 min."\},\
+    \{id:"4-4-2",n:"Sliding Window Maximum",d:"h",lc:"239",url:"https://leetcode.com/problems/sliding-window-maximum/",note:"Monotonic deque. O(n). Uber/PhonePe ask this. Deque stores indices."\}]\},\
+  \{label:"Day 26",type:"Matrix problems",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"4-5-1",n:"Rotate Image",d:"m",lc:"48",url:"https://leetcode.com/problems/rotate-image/",note:"Transpose then reverse each row. In-place. Draw it."\},\
+    \{id:"4-5-2",n:"Spiral Matrix",d:"m",lc:"54",url:"https://leetcode.com/problems/spiral-matrix/",note:"Simulate with 4 boundaries. Shrink after each complete pass."\}]\},\
+  \{label:"Day 27",type:"Matrix hard + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"4-6-1",n:"Set Matrix Zeroes",d:"m",lc:"73",url:"https://leetcode.com/problems/set-matrix-zeroes/",note:"Use first row/col as markers for O(1) space. In-place trick."\},\
+    \{id:"4-6-sd",n:"SD read: Database sharding + replication",d:"s",url:"https://github.com/donnemartin/system-design-primer#sharding-or-data-partitioning"\}]\},\
+  \{label:"Day 28",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"4-7-sd",n:"SD: Design a Notification System \'97 push + email + SMS",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+\{id:5,title:"Linked List",phase:"Phase 1 \'97 Foundation",pc:"#22c55e",\
+tip:"Draw nodes and arrows before writing a single line of code. Every linked list bug comes from not visualising the pointer changes. Dummy head node eliminates most edge cases automatically.",\
+days:[\
+  \{label:"Day 29",type:"Core operations",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"5-1-1",n:"Reverse Linked List",d:"e",lc:"206",url:"https://leetcode.com/problems/reverse-linked-list/",note:"Three pointers: prev, curr, next. The foundation of all LL problems."\},\
+    \{id:"5-1-2",n:"Merge Two Sorted Lists",d:"e",lc:"21",url:"https://leetcode.com/problems/merge-two-sorted-lists/",note:"Dummy head simplifies edge cases. Build iteratively."\}]\},\
+  \{label:"Day 30",type:"Two pointer on LL",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"5-2-1",n:"Linked List Cycle (Floyd's)",d:"e",lc:"141",url:"https://leetcode.com/problems/linked-list-cycle/",note:"Fast+slow pointers must meet if cycle exists. Prove this."\},\
+    \{id:"5-2-2",n:"Linked List Cycle II (find start)",d:"m",lc:"142",url:"https://leetcode.com/problems/linked-list-cycle-ii/",note:"After meeting: reset one to head, advance both by 1. Why? Math proof."\}]\},\
+  \{label:"Day 31",type:"Remove + reorder",tc:"#22c55e",pcount:2,probs:[\
+    \{id:"5-3-1",n:"Remove Nth Node From End",d:"m",lc:"19",url:"https://leetcode.com/problems/remove-nth-node-from-end-of-list/",note:"Two pointer gap of n. Dummy head handles edge case of removing head."\},\
+    \{id:"5-3-2",n:"Reorder List",d:"m",lc:"143",url:"https://leetcode.com/problems/reorder-list/",note:"3 steps: find mid \uc0\u8594  reverse second half \u8594  merge two halves."\}]\},\
+  \{label:"Day 32",type:"Copy + add",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"5-4-1",n:"Copy List with Random Pointer",d:"m",lc:"138",url:"https://leetcode.com/problems/copy-list-with-random-pointer/",note:"HashMap: old\uc0\u8594 new node. Two passes. Or weave+unweave for O(1) space."\},\
+    \{id:"5-4-2",n:"Add Two Numbers",d:"m",lc:"2",url:"https://leetcode.com/problems/add-two-numbers/",note:"Digit addition with carry. Handle different lengths cleanly."\}]\},\
+  \{label:"Day 33",type:"Hard patterns",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"5-5-1",n:"Reverse Nodes in k-Group",d:"h",lc:"25",url:"https://leetcode.com/problems/reverse-nodes-in-k-group/",note:"Reverse k nodes, recurse on rest. Google hard \'97 budget 55 min."\},\
+    \{id:"5-5-2",n:"Find the Duplicate Number",d:"m",lc:"287",url:"https://leetcode.com/problems/find-the-duplicate-number/",note:"Floyd's cycle detection on array indices. O(n) time O(1) space."\}]\},\
+  \{label:"Day 34",type:"Design + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"5-6-1",n:"LRU Cache",d:"m",lc:"146",url:"https://leetcode.com/problems/lru-cache/",note:"HashMap + doubly linked list. Asked at every company. Know cold."\},\
+    \{id:"5-6-sd",n:"SD read: Message queues \'97 Kafka, SQS, pub-sub architecture",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\},\
+  \{label:"Day 35",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"5-7-sd",n:"SD: Design a Chat System (WhatsApp) \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+// \uc0\u9472 \u9472 \u9472  PHASE 2: CORE DSA (Weeks 6\'9610) \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \
+\{id:6,title:"Stack + Monotonic Stack + Queue",phase:"Phase 2 \'97 Core DSA",pc:"#6366f1",\
+tip:"Monotonic stack question to ask: 'What does the current element invalidate from my stack?' That single question solves daily temperatures, largest rectangle, and trapping rain water \'97 same pattern, different problem.",\
+days:[\
+  \{label:"Day 36",type:"Stack fundamentals",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"6-1-1",n:"Valid Parentheses",d:"e",lc:"20",url:"https://leetcode.com/problems/valid-parentheses/",note:"Push open, check/pop on close. Baseline stack problem."\},\
+    \{id:"6-1-2",n:"Min Stack",d:"m",lc:"155",url:"https://leetcode.com/problems/min-stack/",note:"Two stacks: one normal, one tracking running minimum."\}]\},\
+  \{label:"Day 37",type:"Stack applications",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"6-2-1",n:"Decode String",d:"m",lc:"394",url:"https://leetcode.com/problems/decode-string/",note:"Stack of (count, string). Great nested structure problem."\},\
+    \{id:"6-2-2",n:"Basic Calculator II",d:"m",lc:"227",url:"https://leetcode.com/problems/basic-calculator-ii/",note:"Stack for +/- numbers. Handle \'d7 and \'f7 immediately without pushing."\}]\},\
+  \{label:"Day 38",type:"Monotonic stack",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"6-3-1",n:"Daily Temperatures",d:"m",lc:"739",url:"https://leetcode.com/problems/daily-temperatures/",note:"Monotonic decreasing stack. Template problem \'97 learn this cold."\},\
+    \{id:"6-3-2",n:"Next Greater Element I",d:"e",lc:"496",url:"https://leetcode.com/problems/next-greater-element-i/"\}]\},\
+  \{label:"Day 39",type:"Monotonic stack hard",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"6-4-1",n:"Largest Rectangle in Histogram",d:"h",lc:"84",url:"https://leetcode.com/problems/largest-rectangle-in-histogram/",note:"For each bar: how far left/right can it extend? Monotonic stack. Budget 55 min."\},\
+    \{id:"6-4-2",n:"Car Fleet",d:"m",lc:"853",url:"https://leetcode.com/problems/car-fleet/"\}]\},\
+  \{label:"Day 40",type:"Generate + Calculator",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"6-5-1",n:"Generate Parentheses",d:"m",lc:"22",url:"https://leetcode.com/problems/generate-parentheses/",note:"Backtracking with stack logic. open<n: add '('. close<open: add ')'."\},\
+    \{id:"6-5-2",n:"Asteroid Collision",d:"m",lc:"735",url:"https://leetcode.com/problems/asteroid-collision/",note:"Stack simulation. Handle same-direction vs collision carefully."\}]\},\
+  \{label:"Day 41",type:"Hard + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"6-6-1",n:"Maximal Rectangle",d:"h",lc:"85",url:"https://leetcode.com/problems/maximal-rectangle/",note:"Reduce each row to histogram. Apply largest rectangle histogram solution."\},\
+    \{id:"6-6-sd",n:"SD read: Consistent Hashing + distributed systems basics",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\},\
+  \{label:"Day 42",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"6-7-sd",n:"SD: Design Twitter / News Feed \'97 full walkthrough",d:"s",url:"https://github.com/donnemartin/system-design-primer#design-the-twitter-timeline-and-search"\}]\}\
+]\},\
+\
+\{id:7,title:"Binary Trees \'97 DFS, BFS, Construction",phase:"Phase 2 \'97 Core DSA",pc:"#6366f1",\
+tip:"Every tree problem is either post-order (return something up from children) or pre-order (pass something down from parent). Identify which before coding. This single question eliminates 80% of tree bugs.",\
+days:[\
+  \{label:"Day 43",type:"DFS \'97 post order",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"7-1-1",n:"Maximum Depth of Binary Tree",d:"e",lc:"104",url:"https://leetcode.com/problems/maximum-depth-of-binary-tree/",note:"1 + max(left,right). Simplest post-order. Start here."\},\
+    \{id:"7-1-2",n:"Diameter of Binary Tree",d:"e",lc:"543",url:"https://leetcode.com/problems/diameter-of-binary-tree/",note:"Post-order with global max side effect. Track longest path through each node."\}]\},\
+  \{label:"Day 44",type:"DFS \'97 paths",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"7-2-1",n:"Path Sum II (all paths)",d:"m",lc:"113",url:"https://leetcode.com/problems/path-sum-ii/",note:"Backtracking on tree: add to path, recurse, pop."\},\
+    \{id:"7-2-2",n:"Balanced Binary Tree",d:"e",lc:"110",url:"https://leetcode.com/problems/balanced-binary-tree/",note:"Return -1 as sentinel for unbalanced. One-pass O(n)."\}]\},\
+  \{label:"Day 45",type:"BFS \'97 level order",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"7-3-1",n:"Binary Tree Level Order Traversal",d:"m",lc:"102",url:"https://leetcode.com/problems/binary-tree-level-order-traversal/",note:"BFS with level grouping. len(queue) at start of each level = level size."\},\
+    \{id:"7-3-2",n:"Binary Tree Right Side View",d:"m",lc:"199",url:"https://leetcode.com/problems/binary-tree-right-side-view/",note:"BFS: last node of each level. Or DFS: pass level, first visit per level."\}]\},\
+  \{label:"Day 46",type:"LCA + construction",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"7-4-1",n:"Lowest Common Ancestor of Binary Tree",d:"m",lc:"236",url:"https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",note:"If p and q split at node = LCA. Classic post-order."\},\
+    \{id:"7-4-2",n:"Construct Binary Tree from Preorder and Inorder",d:"m",lc:"105",url:"https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",note:"Preorder[0]=root. Find in inorder to split left/right subtrees."\}]\},\
+  \{label:"Day 47",type:"Hard trees",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"7-5-1",n:"Binary Tree Maximum Path Sum",d:"h",lc:"124",url:"https://leetcode.com/problems/binary-tree-maximum-path-sum/",note:"Max gain from node: max(0,left)+max(0,right)+node. Global max tracking."\},\
+    \{id:"7-5-2",n:"Serialize and Deserialize Binary Tree",d:"h",lc:"297",url:"https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",note:"BFS serialization with null markers. Google asks this frequently."\}]\},\
+  \{label:"Day 48",type:"Views + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"7-6-1",n:"All Nodes Distance K in Binary Tree",d:"m",lc:"863",url:"https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/",note:"Convert tree to undirected graph, then BFS from target."\},\
+    \{id:"7-6-sd",n:"SD read: SQL vs NoSQL + database indexing deep dive",d:"s",url:"https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms"\}]\},\
+  \{label:"Day 49",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"7-7-sd",n:"SD: Design YouTube / Video Streaming \'97 timed 40 min",d:"s",url:"https://github.com/donnemartin/system-design-primer#design-youtube-or-netflix"\}]\}\
+]\},\
+\
+\{id:8,title:"BST + Trie",phase:"Phase 2 \'97 Core DSA",pc:"#6366f1",\
+tip:"BST property means in-order traversal = sorted. Almost every BST problem uses this. Trie property: shared prefix = shared path. Word Search II combines both \'97 that's why it's hard.",\
+days:[\
+  \{label:"Day 50",type:"BST operations",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"8-1-1",n:"Validate Binary Search Tree",d:"m",lc:"98",url:"https://leetcode.com/problems/validate-binary-search-tree/",note:"Pass min/max bounds down, not just parent. Common mistake."\},\
+    \{id:"8-1-2",n:"Kth Smallest Element in BST",d:"m",lc:"230",url:"https://leetcode.com/problems/kth-smallest-element-in-a-bst/",note:"In-order = sorted. Count to k. Simplest BST problem."\}]\},\
+  \{label:"Day 51",type:"BST LCA + build",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"8-2-1",n:"Lowest Common Ancestor of BST",d:"m",lc:"235",url:"https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",note:"Use BST property: both < node \uc0\u8594  go left, both > \u8594  go right, else = LCA."\},\
+    \{id:"8-2-2",n:"Convert Sorted Array to BST",d:"e",lc:"108",url:"https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",note:"Mid of array = root. Recurse left and right halves."\}]\},\
+  \{label:"Day 52",type:"BST delete + balance",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"8-3-1",n:"Delete Node in BST",d:"m",lc:"450",url:"https://leetcode.com/problems/delete-node-in-a-bst/",note:"3 cases: leaf, one child, two children (find inorder successor)."\},\
+    \{id:"8-3-2",n:"Balance a Binary Search Tree",d:"m",lc:"1382",url:"https://leetcode.com/problems/balance-a-binary-search-tree/",note:"In-order \uc0\u8594  sorted array \u8594  build balanced BST from middle."\}]\},\
+  \{label:"Day 53",type:"Trie fundamentals",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"8-4-1",n:"Implement Trie (Prefix Tree)",d:"m",lc:"208",url:"https://leetcode.com/problems/implement-trie-prefix-tree/",note:"TrieNode with children dict + is_end bool. Build from scratch, test it."\},\
+    \{id:"8-4-2",n:"Design Add and Search Words",d:"m",lc:"211",url:"https://leetcode.com/problems/design-add-and-search-words-data-structure/",note:"Trie + wildcard '.' = try all children. DFS on Trie."\}]\},\
+  \{label:"Day 54",type:"Trie hard",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"8-5-1",n:"Word Search II",d:"h",lc:"212",url:"https://leetcode.com/problems/word-search-ii/",note:"Trie + backtracking on grid. Hard and important Google problem. Budget 60 min."\},\
+    \{id:"8-5-2",n:"Replace Words",d:"m",lc:"648",url:"https://leetcode.com/problems/replace-words/"\}]\},\
+  \{label:"Day 55",type:"Palindrome + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"8-6-1",n:"Palindrome Partitioning",d:"m",lc:"131",url:"https://leetcode.com/problems/palindrome-partitioning/",note:"Backtracking + palindrome check. Or backtracking + DP precompute."\},\
+    \{id:"8-6-sd",n:"SD read: API design \'97 REST vs GraphQL vs gRPC tradeoffs",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\},\
+  \{label:"Day 56",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"8-7-sd",n:"SD: Design Uber Ride Matching + Surge Pricing \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+\{id:9,title:"Graphs \'97 BFS, DFS, Union-Find",phase:"Phase 2 \'97 Core DSA",pc:"#6366f1",\
+tip:"4 graph types: (1) connected components \uc0\u8594  DFS/BFS/DSU, (2) shortest path \u8594  BFS/Dijkstra, (3) cycle detection \u8594  DFS with 3 colors, (4) ordering constraints \u8594  topological sort. Identify which one in the first 2 minutes.",\
+days:[\
+  \{label:"Day 57",type:"DFS \'97 flood fill",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"9-1-1",n:"Number of Islands",d:"m",lc:"200",url:"https://leetcode.com/problems/number-of-islands/",note:"DFS flood-fill. Mark visited by setting to '0'. Classic entry point."\},\
+    \{id:"9-1-2",n:"Max Area of Island",d:"m",lc:"695",url:"https://leetcode.com/problems/max-area-of-island/"\}]\},\
+  \{label:"Day 58",type:"Multi-source BFS",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"9-2-1",n:"Rotting Oranges",d:"m",lc:"994",url:"https://leetcode.com/problems/rotting-oranges/",note:"Multi-source BFS from all rotten simultaneously. Classic pattern."\},\
+    \{id:"9-2-2",n:"Walls and Gates",d:"m",lc:"286",url:"https://leetcode.com/problems/walls-and-gates/",note:"Multi-source BFS from all gates simultaneously."\}]\},\
+  \{label:"Day 59",type:"Graph traversal",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"9-3-1",n:"Clone Graph",d:"m",lc:"133",url:"https://leetcode.com/problems/clone-graph/",note:"HashMap: original\uc0\u8594 clone. DFS copying adjacency."\},\
+    \{id:"9-3-2",n:"Pacific Atlantic Water Flow",d:"m",lc:"417",url:"https://leetcode.com/problems/pacific-atlantic-water-flow/",note:"Reverse BFS from ocean boundaries inward. Intersection = answer."\}]\},\
+  \{label:"Day 60",type:"Union-Find",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"9-4-1",n:"Number of Provinces",d:"m",lc:"547",url:"https://leetcode.com/problems/number-of-provinces/",note:"DSU: count independent sets. Learn path compression + union by rank."\},\
+    \{id:"9-4-2",n:"Redundant Connection",d:"m",lc:"684",url:"https://leetcode.com/problems/redundant-connection/",note:"DSU: when union returns false = cycle found."\}]\},\
+  \{label:"Day 61",type:"Hard graph + bipartite",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"9-5-1",n:"Word Ladder",d:"h",lc:"127",url:"https://leetcode.com/problems/word-ladder/",note:"BFS on word graph. Each word = node, 1-char diff = edge. Budget 50 min."\},\
+    \{id:"9-5-2",n:"Is Graph Bipartite?",d:"m",lc:"785",url:"https://leetcode.com/problems/is-graph-bipartite/",note:"2-colour BFS/DFS. Bipartite = no odd-length cycles."\}]\},\
+  \{label:"Day 62",type:"Surrounded + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"9-6-1",n:"Surrounded Regions",d:"m",lc:"130",url:"https://leetcode.com/problems/surrounded-regions/",note:"BFS from border O's, mark safe, flip unmarked O's."\},\
+    \{id:"9-6-sd",n:"SD read: Distributed systems \'97 replication, consensus, Raft basics",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\},\
+  \{label:"Day 63",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"9-7-sd",n:"SD: Design Payment System / UPI Wallet \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+\{id:10,title:"Advanced Graphs \'97 Topo Sort, Dijkstra, Bellman-Ford, MST",phase:"Phase 2 \'97 Core DSA",pc:"#6366f1",\
+tip:"Dijkstra = non-negative weights. Bellman-Ford = negative weights or detect negative cycles. MST = minimum cost to connect all nodes. Topological sort = dependency ordering. These are 4 distinct algorithms for 4 distinct problem types.",\
+days:[\
+  \{label:"Day 64",type:"Topological sort",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"10-1-1",n:"Course Schedule",d:"m",lc:"207",url:"https://leetcode.com/problems/course-schedule/",note:"Detect cycle in directed graph. DFS 3-colors OR Kahn's BFS."\},\
+    \{id:"10-1-2",n:"Course Schedule II",d:"m",lc:"210",url:"https://leetcode.com/problems/course-schedule-ii/",note:"Return topological order. Kahn's: start from 0-indegree nodes."\}]\},\
+  \{label:"Day 65",type:"Advanced topo",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"10-2-1",n:"Alien Dictionary",d:"h",lc:"269",url:"https://leetcode.com/problems/alien-dictionary/",note:"Build graph from adjacent word pairs. Topological sort. Meta top-asked."\},\
+    \{id:"10-2-2",n:"Minimum Height Trees",d:"m",lc:"310",url:"https://leetcode.com/problems/minimum-height-trees/",note:"Trim leaves iteratively. Roots = last 1-2 remaining nodes."\}]\},\
+  \{label:"Day 66",type:"Dijkstra",tc:"#6366f1",pcount:2,probs:[\
+    \{id:"10-3-1",n:"Network Delay Time",d:"m",lc:"743",url:"https://leetcode.com/problems/network-delay-time/",note:"Dijkstra from source. Answer = max distance to any node."\},\
+    \{id:"10-3-2",n:"Path With Minimum Effort",d:"m",lc:"1631",url:"https://leetcode.com/problems/path-with-minimum-effort/",note:"Dijkstra on grid with effort as edge weight. Good variant."\}]\},\
+  \{label:"Day 67",type:"Bellman-Ford + Floyd",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"10-4-1",n:"Cheapest Flights Within K Stops",d:"m",lc:"787",url:"https://leetcode.com/problems/cheapest-flights-within-k-stops/",note:"Bellman-Ford with K iterations limit. Or modified Dijkstra with stops."\},\
+    \{id:"10-4-2",n:"Find City With Smallest Neighbors",d:"m",lc:"1334",url:"https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/",note:"Floyd-Warshall all-pairs shortest path. O(V\'b3)."\}]\},\
+  \{label:"Day 68",type:"MST",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"10-5-1",n:"Min Cost to Connect All Points",d:"m",lc:"1584",url:"https://leetcode.com/problems/min-cost-to-connect-all-points/",note:"Prim's OR Kruskal's MST. Learn both implementations."\},\
+    \{id:"10-5-2",n:"Connecting Cities With Minimum Cost",d:"m",lc:"1135",url:"https://leetcode.com/problems/connecting-cities-with-minimum-cost/",note:"Kruskal's: sort edges by weight, DSU to avoid cycles."\}]\},\
+  \{label:"Day 69",type:"Hard graph + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"10-6-1",n:"Swim in Rising Water",d:"h",lc:"778",url:"https://leetcode.com/problems/swim-in-rising-water/",note:"Dijkstra or binary search + BFS. Minimum bottleneck path."\},\
+    \{id:"10-6-sd",n:"SD read: Microservices vs monolith + service mesh",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\},\
+  \{label:"Day 70",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"10-7-sd",n:"SD: Design Hotel / Flight Search (Expedia-style) \'97 timed 40 min",d:"s",url:"https://github.com/donnemartin/system-design-primer"\}]\}\
+]\},\
+\
+// \uc0\u9472 \u9472 \u9472  PHASE 3: ADVANCED DSA (Weeks 11\'9614) \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \
+\{id:11,title:"Dynamic Programming \'97 1D patterns",phase:"Phase 3 \'97 Advanced DSA",pc:"#f59e0b",\
+tip:"DP has 6 patterns: linear, grid, knapsack, interval, string, bitmask. When you see a new problem, your FIRST question is which pattern. The recurrence always follows naturally from that. Never jump to coding without naming the pattern.",\
+days:[\
+  \{label:"Day 71",type:"Linear DP \'97 fibonacci family",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"11-1-1",n:"Climbing Stairs",d:"e",lc:"70",url:"https://leetcode.com/problems/climbing-stairs/",note:"dp[i] = dp[i-1] + dp[i-2]. Base: dp[1]=1, dp[2]=2. DP pattern zero."\},\
+    \{id:"11-1-2",n:"House Robber",d:"m",lc:"198",url:"https://leetcode.com/problems/house-robber/",note:"dp[i] = max(dp[i-1], dp[i-2]+nums[i]). Linear DP template."\}]\},\
+  \{label:"Day 72",type:"Linear DP \'97 variants",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"11-2-1",n:"House Robber II (circular)",d:"m",lc:"213",url:"https://leetcode.com/problems/house-robber-ii/",note:"Two runs: [0..n-2] and [1..n-1]. Take max. Handle circular constraint."\},\
+    \{id:"11-2-2",n:"Decode Ways",d:"m",lc:"91",url:"https://leetcode.com/problems/decode-ways/",note:"dp[i] = ways to decode s[0..i]. Handle '0' edge cases carefully."\}]\},\
+  \{label:"Day 73",type:"Unbounded knapsack",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"11-3-1",n:"Coin Change (min coins)",d:"m",lc:"322",url:"https://leetcode.com/problems/coin-change/",note:"dp[i] = min coins for amount i. Init infinity. Bottom-up."\},\
+    \{id:"11-3-2",n:"Coin Change II (count ways)",d:"m",lc:"518",url:"https://leetcode.com/problems/coin-change-ii/",note:"dp[i] += dp[i-coin] for each coin. Unbounded knapsack pattern."\}]\},\
+  \{label:"Day 74",type:"LIS + word break",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"11-4-1",n:"Longest Increasing Subsequence",d:"m",lc:"300",url:"https://leetcode.com/problems/longest-increasing-subsequence/",note:"O(n\'b2) DP or O(n log n) with binary search (patience sorting)."\},\
+    \{id:"11-4-2",n:"Word Break",d:"m",lc:"139",url:"https://leetcode.com/problems/word-break/",note:"dp[i] = can form s[0..i]. Check all j<i where s[j..i] in dict."\}]\},\
+  \{label:"Day 75",type:"Stock problems",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"11-5-1",n:"Best Time to Buy Stock with Cooldown",d:"m",lc:"309",url:"https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",note:"State machine DP: held, sold, rest. Very common state machine pattern."\},\
+    \{id:"11-5-2",n:"Best Time to Buy Stock III (at most 2 txns)",d:"h",lc:"123",url:"https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/",note:"4 states: buy1, sell1, buy2, sell2. Track each independently."\}]\},\
+  \{label:"Day 76",type:"Jump games + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"11-6-1",n:"Jump Game II (min jumps)",d:"m",lc:"45",url:"https://leetcode.com/problems/jump-game-ii/",note:"Greedy BFS: track current range, next reachable range."\},\
+    \{id:"11-6-sd",n:"SD read: Edge computing + Cloudflare Workers (2025 trend)",d:"s",url:"https://developers.cloudflare.com/workers/"\}]\},\
+  \{label:"Day 77",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"11-7-sd",n:"SD: Design a Distributed Cache (Redis-style) \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+\{id:12,title:"Dynamic Programming \'97 2D, Knapsack, Intervals",phase:"Phase 3 \'97 Advanced DSA",pc:"#f59e0b",\
+tip:"2D DP: every cell depends on adjacent cells. The recurrence is the key \'97 write it before touching code. Interval DP: think about which element to process LAST in the range, not first. This flip in thinking is what makes burst balloons solvable.",\
+days:[\
+  \{label:"Day 78",type:"Grid DP",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"12-1-1",n:"Unique Paths",d:"m",lc:"62",url:"https://leetcode.com/problems/unique-paths/",note:"dp[i][j] = dp[i-1][j] + dp[i][j-1]. Grid DP baseline."\},\
+    \{id:"12-1-2",n:"Minimum Path Sum",d:"m",lc:"64",url:"https://leetcode.com/problems/minimum-path-sum/"\}]\},\
+  \{label:"Day 79",type:"String DP",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"12-2-1",n:"Longest Common Subsequence",d:"m",lc:"1143",url:"https://leetcode.com/problems/longest-common-subsequence/",note:"dp[i][j]: match\uc0\u8594 1+dp[i-1][j-1], else max skip either. Foundation."\},\
+    \{id:"12-2-2",n:"Edit Distance",d:"m",lc:"72",url:"https://leetcode.com/problems/edit-distance/",note:"dp[i][j] = min ops to convert s1[0..i] to s2[0..j]."\}]\},\
+  \{label:"Day 80",type:"0/1 Knapsack",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"12-3-1",n:"0/1 Knapsack (classic)",d:"m",url:"https://takeuforward.org/data-structure/0-1-knapsack-dp-19/",note:"dp[i][w] = max value with i items and capacity w. Foundation of knapsack family."\},\
+    \{id:"12-3-2",n:"Partition Equal Subset Sum",d:"m",lc:"416",url:"https://leetcode.com/problems/partition-equal-subset-sum/",note:"0/1 knapsack variant. Target = sum/2. Boolean DP."\}]\},\
+  \{label:"Day 81",type:"Palindrome DP",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"12-4-1",n:"Longest Palindromic Subsequence",d:"m",lc:"516",url:"https://leetcode.com/problems/longest-palindromic-subsequence/",note:"dp[i][j] = LPS of s[i..j]. Match: 2+inner, else max skip either."\},\
+    \{id:"12-4-2",n:"Palindromic Substrings",d:"m",lc:"647",url:"https://leetcode.com/problems/palindromic-substrings/",note:"Expand around center. O(n\'b2). Count all palindromes."\}]\},\
+  \{label:"Day 82",type:"Interval DP",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"12-5-1",n:"Burst Balloons",d:"h",lc:"312",url:"https://leetcode.com/problems/burst-balloons/",note:"Think which balloon to burst LAST in range (not first). Interval DP. Budget 55 min."\},\
+    \{id:"12-5-2",n:"Wildcard Matching",d:"h",lc:"44",url:"https://leetcode.com/problems/wildcard-matching/",note:"? = one char, * = any sequence. 2D DP similar to regex."\}]\},\
+  \{label:"Day 83",type:"Hard DP + SD",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"12-6-1",n:"Regular Expression Matching",d:"h",lc:"10",url:"https://leetcode.com/problems/regular-expression-matching/",note:"dp[i][j] = s[0..i] matches p[0..j]. Handle '.' and '*' separately."\},\
+    \{id:"12-6-sd",n:"SD read: RAG systems + vector databases (2025 trend)",d:"s",url:"https://docs.anthropic.com"\}]\},\
+  \{label:"Day 84",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"12-7-sd",n:"SD: Design RAG-based AI Search \'97 timed 40 min (2025 trend)",d:"s",url:"https://docs.anthropic.com"\}]\}\
+]\},\
+\
+\{id:13,title:"Heaps, Two Heaps, Intervals, Greedy",phase:"Phase 3 \'97 Advanced DSA",pc:"#f59e0b",\
+tip:"Two heaps pattern solves any problem needing the max of the lower half AND min of the upper half simultaneously \'97 median, sliding window median, IPO. Whenever you see 'K' in a problem title, think heap first.",\
+days:[\
+  \{label:"Day 85",type:"Heap fundamentals",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"13-1-1",n:"Kth Largest Element in Array",d:"m",lc:"215",url:"https://leetcode.com/problems/kth-largest-element-in-an-array/",note:"Min-heap of size K OR Quickselect O(n) avg. Know both."\},\
+    \{id:"13-1-2",n:"Top K Frequent Elements",d:"m",lc:"347",url:"https://leetcode.com/problems/top-k-frequent-elements/",note:"Frequency map + min-heap of size K. Or bucket sort O(n)."\}]\},\
+  \{label:"Day 86",type:"Two heaps",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"13-2-1",n:"Find Median from Data Stream",d:"h",lc:"295",url:"https://leetcode.com/problems/find-median-from-data-stream/",note:"max-heap (lower half) + min-heap (upper half). Balance sizes."\},\
+    \{id:"13-2-2",n:"IPO (maximise capital)",d:"h",lc:"502",url:"https://leetcode.com/problems/ipo/",note:"Two heaps: projects sorted by capital, profits max-heap. Classic two-heap."\}]\},\
+  \{label:"Day 87",type:"Merge K + task scheduler",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"13-3-1",n:"Merge K Sorted Lists",d:"h",lc:"23",url:"https://leetcode.com/problems/merge-k-sorted-lists/",note:"Min-heap of (val, list_index). O(n log k). Classic K-way merge."\},\
+    \{id:"13-3-2",n:"Task Scheduler",d:"m",lc:"621",url:"https://leetcode.com/problems/task-scheduler/",note:"Greedy: max_freq task determines idle time. Formula or simulation."\}]\},\
+  \{label:"Day 88",type:"Intervals + greedy",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"13-4-1",n:"Meeting Rooms II",d:"m",lc:"253",url:"https://leetcode.com/problems/meeting-rooms-ii/",note:"Min-heap of end times. If start >= heap.top: reuse room."\},\
+    \{id:"13-4-2",n:"Non-overlapping Intervals",d:"m",lc:"435",url:"https://leetcode.com/problems/non-overlapping-intervals/",note:"Greedy: sort by end, keep intervals ending earliest."\}]\},\
+  \{label:"Day 89",type:"Greedy hard",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"13-5-1",n:"Candy",d:"h",lc:"135",url:"https://leetcode.com/problems/candy/",note:"Two passes: L\uc0\u8594 R (ascending), R\u8594 L (descending). Take max of both passes."\},\
+    \{id:"13-5-2",n:"Reorganize String",d:"m",lc:"767",url:"https://leetcode.com/problems/reorganize-string/",note:"Max-heap by frequency. Greedily pick most frequent \uc0\u8800  prev char."\}]\},\
+  \{label:"Day 90",type:"Freq stack + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"13-6-1",n:"Maximum Frequency Stack",d:"h",lc:"895",url:"https://leetcode.com/problems/maximum-frequency-stack/",note:"HashMap of freq\uc0\u8594 stack. Track max freq. Pop from max freq stack."\},\
+    \{id:"13-6-sd",n:"SD read: React Server Components + Next.js App Router (2025 trend)",d:"s",url:"https://nextjs.org/docs"\}]\},\
+  \{label:"Day 91",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"13-7-sd",n:"SD: Design Google Maps / Location Service \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+\{id:14,title:"Bit Manipulation + Math + String Algorithms",phase:"Phase 3 \'97 Advanced DSA",pc:"#f59e0b",\
+tip:"Bit manipulation: XOR is the magic operator (a^a=0, a^0=a). All single-number variants use XOR. KMP preprocesses the pattern once O(m) then searches in O(n) \'97 total O(n+m) vs O(nm) naive. Know why.",\
+days:[\
+  \{label:"Day 92",type:"XOR patterns",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-1-1",n:"Single Number",d:"e",lc:"136",url:"https://leetcode.com/problems/single-number/",note:"XOR all numbers. Pairs cancel (a^a=0). O(n) time O(1) space."\},\
+    \{id:"14-1-2",n:"Single Number III (two singles)",d:"m",lc:"260",url:"https://leetcode.com/problems/single-number-iii/",note:"XOR all \uc0\u8594  bitmask to split into two groups. Clever application."\}]\},\
+  \{label:"Day 93",type:"Bit counting",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-2-1",n:"Number of 1 Bits",d:"e",lc:"191",url:"https://leetcode.com/problems/number-of-1-bits/",note:"n & (n-1) removes lowest set bit. Count iterations."\},\
+    \{id:"14-2-2",n:"Counting Bits",d:"e",lc:"338",url:"https://leetcode.com/problems/counting-bits/",note:"dp[i] = dp[i>>1] + (i&1). O(n) DP. Clever bit shift insight."\}]\},\
+  \{label:"Day 94",type:"Bit arithmetic",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-3-1",n:"Sum of Two Integers (no + operator)",d:"m",lc:"371",url:"https://leetcode.com/problems/sum-of-two-integers/",note:"a^b = sum without carry. (a&b)<<1 = carry. Repeat until carry=0."\},\
+    \{id:"14-3-2",n:"Missing Number",d:"e",lc:"268",url:"https://leetcode.com/problems/missing-number/",note:"XOR 0..n with all elements. Or sum formula: n*(n+1)/2 - sum."\}]\},\
+  \{label:"Day 95",type:"Math problems",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-4-1",n:"Pow(x, n) \'97 fast exponentiation",d:"m",lc:"50",url:"https://leetcode.com/problems/powx-n/",note:"Divide-conquer: x^n = x^(n//2) * x^(n//2). O(log n). Handle negative n."\},\
+    \{id:"14-4-2",n:"Reverse Integer",d:"m",lc:"7",url:"https://leetcode.com/problems/reverse-integer/",note:"Build digit by digit. Check overflow at each step."\}]\},\
+  \{label:"Day 96",type:"String algorithms",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-5-1",n:"Implement strStr (KMP)",d:"m",lc:"28",url:"https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",note:"KMP failure function precomputes proper prefix-suffix. O(n+m)."\},\
+    \{id:"14-5-2",n:"Text Justification",d:"h",lc:"68",url:"https://leetcode.com/problems/text-justification/",note:"Greedy line filling + even space distribution. Airbnb loves this."\}]\},\
+  \{label:"Day 97",type:"Bit range + SD",tc:"#f59e0b",pcount:2,probs:[\
+    \{id:"14-6-1",n:"Bitwise AND of Numbers Range",d:"m",lc:"201",url:"https://leetcode.com/problems/bitwise-and-of-numbers-range/",note:"Right-shift both until equal = common prefix of all bits in range."\},\
+    \{id:"14-6-sd",n:"SD read: OpenTelemetry + distributed tracing (2025 trend)",d:"s",url:"https://opentelemetry.io/docs/"\}]\},\
+  \{label:"Day 98",type:"SD day",tc:"#a78bfa",pcount:1,probs:[\
+    \{id:"14-7-sd",n:"SD: Design a Stock Trading Platform \'97 timed 40 min",d:"s",url:"https://bytebytego.com"\}]\}\
+]\},\
+\
+// \uc0\u9472 \u9472 \u9472  PHASE 4: ADVANCED STRUCTURES + SD + INTERVIEWS (Weeks 15\'9618) \u9472 \
+\{id:15,title:"Segment Tree + Fenwick Tree + Advanced",phase:"Phase 4 \'97 Advanced",pc:"#ef4444",\
+tip:"Segment tree = any range query + range update. Fenwick (BIT) = point update + prefix query. Both O(log n). Know when to use which. Count inversions via merge sort is asked at Flipkart frequently.",\
+days:[\
+  \{label:"Day 99",type:"Prefix sum + BIT basics",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"15-1-1",n:"Range Sum Query - Mutable (Segment Tree)",d:"m",lc:"307",url:"https://leetcode.com/problems/range-sum-query-mutable/",note:"Build O(n). Update O(log n). Query O(log n)."\},\
+    \{id:"15-1-2",n:"Range Sum Query - Immutable",d:"e",lc:"303",url:"https://leetcode.com/problems/range-sum-query-immutable/",note:"Simple prefix array. Foundation before segment tree."\}]\},\
+  \{label:"Day 100",type:"Count inversions",tc:"#ef4444",pcount:2,probs:[\
+    \{id:"15-2-1",n:"Count of Smaller Numbers After Self",d:"h",lc:"315",url:"https://leetcode.com/problems/count-of-smaller-numbers-after-self/",note:"Fenwick tree OR merge sort count inversions. Flipkart/Amazon ask."\},\
+    \{id:"15-2-2",n:"Reverse Pairs",d:"h",lc:"493",url:"https://leetcode.com/problems/reverse-pairs/",note:"Modified merge sort. Count pairs before merging."\}]\},\
+  \{label:"Days 101\'96105",type:"SD deep dive week 15",tc:"#a78bfa",pcount:0,probs:[\
+    \{id:"15-3-sd1",n:"SD: Design URL Shortener (redo \'97 timed, no notes)",d:"s",url:"https://github.com/donnemartin/system-design-primer#design-pastebin-com-or-bit-ly"\},\
+    \{id:"15-3-sd2",n:"Read full SD Primer \'97 Scalability chapter end-to-end",d:"s",url:"https://github.com/donnemartin/system-design-primer#scalability"\},\
+    \{id:"15-3-sd3",n:"SD: Design WhatsApp (redo \'97 timed, no notes)",d:"s",url:"https://bytebytego.com"\},\
+    \{id:"15-3-sd4",n:"SD mock on Interviewing.io \'97 system design round #1",d:"s",url:"https://interviewing.io"\},\
+    \{id:"15-3-sd5",n:"Write 1-page cheat sheet for each design done so far",d:"s"\}]\}\
+]\},\
+\
+\{id:16,title:"Mock Interviews + Behavioural + Full-Stack (Weeks 16\'9618)",phase:"Phase 4 \'97 Interviews",pc:"#a78bfa",\
+tip:"Apply before you feel ready \'97 from week 16 for Tier 2, week 17 for Tier 1. The gap between knowing and delivering under pressure is only closed through real interviews. Every mock is a data point.",\
+days:[\
+  \{label:"Weeks 16\'9617",type:"Full-stack depth + Tier 2 applications",tc:"#a78bfa",pcount:0,probs:[\
+    \{id:"16-1-1",n:"React internals \'97 hooks, reconciliation, Server Components (2025)",d:"s",url:"https://react.dev/learn"\},\
+    \{id:"16-1-2",n:"Next.js App Router + Server Actions deep dive",d:"s",url:"https://nextjs.org/docs"\},\
+    \{id:"16-1-3",n:"Node.js event loop, streams, cluster module",d:"s",url:"https://nodejs.org/en/docs/guides"\},\
+    \{id:"16-1-4",n:"TypeScript deep types \'97 generics, conditional types, utility types",d:"s",url:"https://www.typescriptlang.org/docs/handbook/"\},\
+    \{id:"16-1-5",n:"Web performance \'97 Core Web Vitals, bundle splitting, lazy load",d:"s",url:"https://web.dev/learn/performance/"\},\
+    \{id:"16-1-6",n:"AI/LLM integration \'97 RAG, vector DBs, streaming (2025 trend)",d:"s",url:"https://docs.anthropic.com"\},\
+    \{id:"16-1-7",n:"Pramp mock \'97 2\'d7 this week (coding rounds, camera on, talk out loud)",d:"s",url:"https://www.pramp.com"\},\
+    \{id:"16-1-8",n:"Write 5\'966 STAR stories from your Expedia experience (with metrics)",d:"s"\},\
+    \{id:"16-1-9",n:"Apply to Flipkart, Uber, PhonePe with referrals",d:"s",url:"https://www.linkedin.com"\},\
+    \{id:"16-1-10",n:"SD mock on Interviewing.io \'97 system design round #2",d:"s",url:"https://interviewing.io"\}]\},\
+  \{label:"Week 18",type:"Tier 1 applications + final push",tc:"#ef4444",pcount:0,probs:[\
+    \{id:"16-2-1",n:"Apply to Google India, Microsoft IDC (with referrals)",d:"s",url:"https://careers.google.com"\},\
+    \{id:"16-2-2",n:"Apply to Meta India, Airbnb (with referrals)",d:"s",url:"https://www.metacareers.com"\},\
+    \{id:"16-2-3",n:"Final Pramp mock \'97 2\'d7 (simulate exact company format)",d:"s",url:"https://www.pramp.com"\},\
+    \{id:"16-2-4",n:"Negotiate every offer using competing bids \'97 check Levels.fyi first",d:"s",url:"https://www.levels.fyi"\},\
+    \{id:"16-2-5",n:"Review salary bands before any negotiation call",d:"s",url:"https://www.levels.fyi"\}]\}\
+]\}\
+];\
+\
+\
+const TRENDS=[\
+  \{title:"AI system design \'97 RAG and vector databases",hot:"\uc0\u55357 \u56613  Hottest 2025",hc:"#ef4444",hbg:"rgba(239,68,68,.12)",desc:"Google, Meta, and Airbnb now ask SD questions about AI-powered systems. RAG (Retrieval Augmented Generation), vector databases (Pinecone, Weaviate), embedding pipelines, and LLM inference infrastructure are live interview topics for product teams.",tags:["RAG","Vector DB","LLM APIs","Embedding pipeline","Semantic search"],links:[\{l:"Anthropic API docs",u:"https://docs.anthropic.com",h:true\},\{l:"OpenAI docs",u:"https://platform.openai.com/docs"\},\{l:"Pinecone",u:"https://docs.pinecone.io"\},\{l:"LangChain",u:"https://python.langchain.com"\}]\},\
+  \{title:"React Server Components and Next.js App Router",hot:"\uc0\u55357 \u56613  Rising fast",hc:"#f59e0b",hbg:"rgba(245,158,11,.12)",desc:"Airbnb, Meta, and Uber ask about React Server Components, server actions, and the App Router in 2025 full-stack rounds. The shift from client-only to hybrid rendering is a common interview topic.",tags:["React Server Components","Next.js App Router","Server Actions","Streaming UI","Suspense"],links:[\{l:"React docs",u:"https://react.dev",h:true\},\{l:"Next.js docs",u:"https://nextjs.org/docs"\},\{l:"Vercel blog",u:"https://vercel.com/blog"\}]\},\
+  \{title:"Edge computing and distributed caching",hot:"\uc0\u55357 \u56520  Growing",hc:"#38bdf8",hbg:"rgba(56,189,248,.12)",desc:"Cloudflare Workers, Lambda@Edge, and smarter caching strategies are now part of SD interviews at Google and Uber. Know the tradeoffs vs centralised architecture.",tags:["Cloudflare Workers","Edge functions","CDN caching","Redis Cluster","Consistent hashing"],links:[\{l:"Cloudflare Workers",u:"https://developers.cloudflare.com/workers/",h:true\},\{l:"AWS Lambda@Edge",u:"https://aws.amazon.com/lambda/edge/"\}]\},\
+  \{title:"Observability \'97 OpenTelemetry and distributed tracing",hot:"\uc0\u55357 \u56520  Senior signal",hc:"#a78bfa",hbg:"rgba(167,139,250,.12)",desc:"At L4/E4 level interviewers expect you to discuss how you'd observe a distributed system. OpenTelemetry, distributed tracing (Jaeger, Zipkin), structured logging, SLO-based alerting are differentiators most SDE2 candidates miss.",tags:["OpenTelemetry","Distributed tracing","SLO/SLA","Prometheus","Grafana"],links:[\{l:"OpenTelemetry docs",u:"https://opentelemetry.io/docs/",h:true\},\{l:"Google SRE book",u:"https://sre.google/sre-book/monitoring-distributed-systems/"\}]\},\
+  \{title:"TypeScript deep type system",hot:"\uc0\u55357 \u56481  Baseline 2025",hc:"#22c55e",hbg:"rgba(34,197,94,.12)",desc:"TypeScript fluency is now a baseline expectation for full-stack roles at Airbnb, Meta, and Flipkart. Generic types, conditional types, utility types (Partial, Pick, Omit), and type narrowing come up in coding rounds.",tags:["Generics","Conditional types","Utility types","Type narrowing","Discriminated unions"],links:[\{l:"TS Handbook",u:"https://www.typescriptlang.org/docs/handbook/",h:true\},\{l:"Type challenges",u:"https://github.com/type-challenges/type-challenges"\},\{l:"Total TypeScript",u:"https://www.totaltypescript.com"\}]\},\
+  \{title:"gRPC and API design beyond REST",hot:"\uc0\u55357 \u56520  Backend depth",hc:"#f59e0b",hbg:"rgba(245,158,11,.12)",desc:"gRPC and Protocol Buffers are standard at Google and Uber for internal services. API design questions in 2025 test your ability to choose between REST, GraphQL, and gRPC with justified tradeoffs.",tags:["gRPC","Protocol Buffers","GraphQL","API versioning","Rate limiting"],links:[\{l:"gRPC docs",u:"https://grpc.io/docs/",h:true\},\{l:"GraphQL",u:"https://graphql.org/learn/"\},\{l:"Google API guide",u:"https://cloud.google.com/apis/design"\}]\},\
+  \{title:"Micro-frontends and module federation",hot:"\uc0\u55357 \u56481  Flipkart/Uber",hc:"#22c55e",hbg:"rgba(34,197,94,.12)",desc:"Flipkart and Uber use micro-frontend architectures. Module Federation, shared state between independently deployed frontends, and lazy remote components come up in SD rounds for senior full-stack roles.",tags:["Module Federation","Webpack 5","Micro-frontends","Remote components","Shared state"],links:[\{l:"Webpack Module Federation",u:"https://webpack.js.org/concepts/module-federation/",h:true\},\{l:"Martin Fowler \'97 Micro Frontends",u:"https://martinfowler.com/articles/micro-frontends.html"\}]\},\
+  \{title:"ML system design for product engineers",hot:"\uc0\u55357 \u56960  2025 frontier",hc:"#6366f1",hbg:"rgba(99,102,241,.12)",desc:"Google, Meta AI, and Uber ML teams ask about ML infrastructure: model serving, batching, feature stores, inference optimisation. Knowing KV cache in transformers and quantisation at a high level is a differentiator in 2025.",tags:["Model serving","Inference at scale","Feature stores","Quantisation","Batching"],links:[\{l:"Hugging Face",u:"https://huggingface.co/docs/transformers/",h:true\},\{l:"vLLM",u:"https://github.com/vllm-project/vllm"\},\{l:"Ray Serve",u:"https://docs.ray.io/en/latest/serve/"\}]\}\
+];\
+\
+const COS=\{\
+  google:\{name:"Google",color:"#4285f4",rounds:"Phone screen \uc0\u8594  4-5 onsite (3 coding + 1 SD + 1 behavioural)",tip:"Expects optimal complexity. 'Can you do better?' is standard. SD rounds need Google-scale thinking. Talk out loud throughout.",qs:[\
+    \{n:"Word Break II",d:"h",lc:"140",pt:"DP + Backtracking",url:"https://leetcode.com/problems/word-break-ii/"\},\
+    \{n:"LRU Cache",d:"m",lc:"146",pt:"Design + DLL",url:"https://leetcode.com/problems/lru-cache/"\},\
+    \{n:"Minimum Window Substring",d:"h",lc:"76",pt:"Sliding window",url:"https://leetcode.com/problems/minimum-window-substring/"\},\
+    \{n:"Median of Two Sorted Arrays",d:"h",lc:"4",pt:"Binary search",url:"https://leetcode.com/problems/median-of-two-sorted-arrays/"\},\
+    \{n:"Trapping Rain Water",d:"h",lc:"42",pt:"Two pointers / stack",url:"https://leetcode.com/problems/trapping-rain-water/"\},\
+    \{n:"Serialize/Deserialize Binary Tree",d:"h",lc:"297",pt:"Tree + BFS",url:"https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"\},\
+    \{n:"Word Search II",d:"h",lc:"212",pt:"Trie + Backtracking",url:"https://leetcode.com/problems/word-search-ii/"\},\
+    \{n:"Count of Smaller Numbers After Self",d:"h",lc:"315",pt:"Merge sort / BIT",url:"https://leetcode.com/problems/count-of-smaller-numbers-after-self/"\},\
+    \{n:"Decode Ways",d:"m",lc:"91",pt:"1D DP",url:"https://leetcode.com/problems/decode-ways/"\},\
+    \{n:"SD: Design RAG-based AI Search (2025 trend)",d:"s",pt:"System design"\}]\},\
+  meta:\{name:"Meta",color:"#0866ff",rounds:"Phone screen \uc0\u8594  2 coding + 1 SD + 1 behavioural",tip:"Behavioural scored equally with coding. Prepare 5-6 STAR stories. They love follow-up questions. Arrays/strings/trees are most common.",qs:[\
+    \{n:"Move Zeroes",d:"e",lc:"283",pt:"Two pointers",url:"https://leetcode.com/problems/move-zeroes/"\},\
+    \{n:"Valid Palindrome II",d:"e",lc:"680",pt:"Two pointers",url:"https://leetcode.com/problems/valid-palindrome-ii/"\},\
+    \{n:"Subarray Sum Equals K",d:"m",lc:"560",pt:"Prefix sum + HashMap",url:"https://leetcode.com/problems/subarray-sum-equals-k/"\},\
+    \{n:"Merge Intervals",d:"m",lc:"56",pt:"Sorting + greedy",url:"https://leetcode.com/problems/merge-intervals/"\},\
+    \{n:"Binary Tree Vertical Order",d:"m",lc:"314",pt:"BFS + HashMap",url:"https://leetcode.com/problems/binary-tree-vertical-order-traversal/"\},\
+    \{n:"Task Scheduler",d:"m",lc:"621",pt:"Greedy + Heap",url:"https://leetcode.com/problems/task-scheduler/"\},\
+    \{n:"Alien Dictionary",d:"h",lc:"269",pt:"Topological sort",url:"https://leetcode.com/problems/alien-dictionary/"\},\
+    \{n:"Diameter of Binary Tree",d:"e",lc:"543",pt:"DFS",url:"https://leetcode.com/problems/diameter-of-binary-tree/"\},\
+    \{n:"Expression Add Operators",d:"h",lc:"282",pt:"Backtracking",url:"https://leetcode.com/problems/expression-add-operators/"\},\
+    \{n:"SD: Design Instagram / Photo Feed",d:"s",pt:"System design"\}]\},\
+  microsoft:\{name:"Microsoft",color:"#00a4ef",rounds:"Phone screen \uc0\u8594  4-5 onsite (coding + SD + behavioural + HM)",tip:"Values clean code + communication. Ask clarifying questions \'97 they love it. SD is less intense than G/M. Culture fit matters a lot.",qs:[\
+    \{n:"Reverse Linked List",d:"e",lc:"206",pt:"Linked list",url:"https://leetcode.com/problems/reverse-linked-list/"\},\
+    \{n:"Binary Tree Level Order Traversal",d:"m",lc:"102",pt:"BFS",url:"https://leetcode.com/problems/binary-tree-level-order-traversal/"\},\
+    \{n:"Search in Rotated Sorted Array",d:"m",lc:"33",pt:"Binary search",url:"https://leetcode.com/problems/search-in-rotated-sorted-array/"\},\
+    \{n:"Number of Islands",d:"m",lc:"200",pt:"DFS/BFS",url:"https://leetcode.com/problems/number-of-islands/"\},\
+    \{n:"Course Schedule",d:"m",lc:"207",pt:"Topological sort",url:"https://leetcode.com/problems/course-schedule/"\},\
+    \{n:"House Robber",d:"m",lc:"198",pt:"1D DP",url:"https://leetcode.com/problems/house-robber/"\},\
+    \{n:"Clone Graph",d:"m",lc:"133",pt:"DFS + HashMap",url:"https://leetcode.com/problems/clone-graph/"\},\
+    \{n:"Spiral Matrix",d:"m",lc:"54",pt:"Matrix simulation",url:"https://leetcode.com/problems/spiral-matrix/"\},\
+    \{n:"LRU Cache",d:"m",lc:"146",pt:"Design",url:"https://leetcode.com/problems/lru-cache/"\},\
+    \{n:"SD: Design Azure Auto-scaling",d:"s",pt:"System design"\}]\},\
+  flipkart:\{name:"Flipkart",color:"#2874f0",rounds:"OA (90 min) \uc0\u8594  3-4 rounds (coding + SD + HM)",tip:"Practical coding at e-commerce scale. SD: search, inventory, order management, recommendations. Medium difficulty but follow-ups test depth.",qs:[\
+    \{n:"Group Anagrams",d:"m",lc:"49",pt:"HashMap + Sorting",url:"https://leetcode.com/problems/group-anagrams/"\},\
+    \{n:"3Sum",d:"m",lc:"15",pt:"Two pointers",url:"https://leetcode.com/problems/3sum/"\},\
+    \{n:"Subarray Sum Equals K",d:"m",lc:"560",pt:"Prefix sum",url:"https://leetcode.com/problems/subarray-sum-equals-k/"\},\
+    \{n:"Count of Smaller Numbers After Self",d:"h",lc:"315",pt:"Merge sort / BIT",url:"https://leetcode.com/problems/count-of-smaller-numbers-after-self/"\},\
+    \{n:"Merge Intervals",d:"m",lc:"56",pt:"Sorting + greedy",url:"https://leetcode.com/problems/merge-intervals/"\},\
+    \{n:"Jump Game II",d:"m",lc:"45",pt:"Greedy",url:"https://leetcode.com/problems/jump-game-ii/"\},\
+    \{n:"Maximum Product Subarray",d:"m",lc:"152",pt:"DP",url:"https://leetcode.com/problems/maximum-product-subarray/"\},\
+    \{n:"LRU Cache",d:"m",lc:"146",pt:"Design",url:"https://leetcode.com/problems/lru-cache/"\},\
+    \{n:"Reverse Pairs",d:"h",lc:"493",pt:"Merge sort (count inversions)",url:"https://leetcode.com/problems/reverse-pairs/"\},\
+    \{n:"SD: Design E-commerce Search + Inventory",d:"s",pt:"System design"\}]\},\
+  uber:\{name:"Uber",color:"#141414",rounds:"Phone screen \uc0\u8594  4 onsite (2 coding + 1 SD + 1 behavioural)",tip:"Geo/maps problems, real-time systems, surge pricing algorithms. SD round is heavy \'97 ride matching, location tracking, real-time pricing.",qs:[\
+    \{n:"Meeting Rooms II",d:"m",lc:"253",pt:"Heap + Intervals",url:"https://leetcode.com/problems/meeting-rooms-ii/"\},\
+    \{n:"K Closest Points to Origin",d:"m",lc:"973",pt:"Heap",url:"https://leetcode.com/problems/k-closest-points-to-origin/"\},\
+    \{n:"Task Scheduler",d:"m",lc:"621",pt:"Greedy + Heap",url:"https://leetcode.com/problems/task-scheduler/"\},\
+    \{n:"Cheapest Flights Within K Stops",d:"m",lc:"787",pt:"Dijkstra / Bellman-Ford",url:"https://leetcode.com/problems/cheapest-flights-within-k-stops/"\},\
+    \{n:"Max Profit in Job Scheduling",d:"h",lc:"1235",pt:"DP + Binary search",url:"https://leetcode.com/problems/maximum-profit-in-job-scheduling/"\},\
+    \{n:"Sliding Window Maximum",d:"h",lc:"239",pt:"Monotonic deque",url:"https://leetcode.com/problems/sliding-window-maximum/"\},\
+    \{n:"Network Delay Time",d:"m",lc:"743",pt:"Dijkstra",url:"https://leetcode.com/problems/network-delay-time/"\},\
+    \{n:"Time Based Key-Value Store",d:"m",lc:"981",pt:"Binary search + HashMap",url:"https://leetcode.com/problems/time-based-key-value-store/"\},\
+    \{n:"Swim in Rising Water",d:"h",lc:"778",pt:"Dijkstra / Binary search+BFS",url:"https://leetcode.com/problems/swim-in-rising-water/"\},\
+    \{n:"SD: Design Uber Surge Pricing + Ride Matching",d:"s",pt:"System design"\}]\},\
+  phonepe:\{name:"PhonePe",color:"#5f259f",rounds:"OA \uc0\u8594  2-3 coding + 1 SD",tip:"Payments, transactions, fraud detection. Know ACID, idempotency, distributed locks, event-driven architecture. Rate limiting SD asked very frequently.",qs:[\
+    \{n:"LRU Cache",d:"m",lc:"146",pt:"Design + DLL",url:"https://leetcode.com/problems/lru-cache/"\},\
+    \{n:"Design Circular Queue",d:"m",lc:"622",pt:"Queue design",url:"https://leetcode.com/problems/design-circular-queue/"\},\
+    \{n:"Sliding Window Maximum",d:"h",lc:"239",pt:"Monotonic deque",url:"https://leetcode.com/problems/sliding-window-maximum/"\},\
+    \{n:"Top K Frequent Words",d:"m",lc:"692",pt:"Heap + HashMap",url:"https://leetcode.com/problems/top-k-frequent-words/"\},\
+    \{n:"Maximum Points from Cards",d:"m",lc:"1423",pt:"Sliding window",url:"https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"\},\
+    \{n:"Minimum Cost to Connect Sticks",d:"m",lc:"1167",pt:"Greedy + Heap",url:"https://leetcode.com/problems/minimum-cost-to-connect-sticks/"\},\
+    \{n:"Find All Duplicates in Array",d:"m",lc:"442",pt:"Cycle sort / Math",url:"https://leetcode.com/problems/find-all-duplicates-in-an-array/"\},\
+    \{n:"Single Number II",d:"m",lc:"137",pt:"Bit manipulation",url:"https://leetcode.com/problems/single-number-ii/"\},\
+    \{n:"SD: Design Rate Limiter",d:"s",pt:"System design \'97 most frequently asked"\},\
+    \{n:"SD: Design UPI Payment System",d:"s",pt:"System design"\}]\},\
+  airbnb:\{name:"Airbnb",color:"#ff5a5f",rounds:"Phone screen \uc0\u8594  4-5 onsite (2 coding + 1 SD + cross-functional + culture)",tip:"Product-focused. Real-world practical problems about booking, search ranking, availability calendars. Culture fit is scored as heavily as technical skill.",qs:[\
+    \{n:"Merge Intervals",d:"m",lc:"56",pt:"Sorting + greedy",url:"https://leetcode.com/problems/merge-intervals/"\},\
+    \{n:"Insert Interval",d:"m",lc:"57",pt:"Intervals",url:"https://leetcode.com/problems/insert-interval/"\},\
+    \{n:"Flatten Nested List Iterator",d:"m",lc:"341",pt:"Design + DFS",url:"https://leetcode.com/problems/flatten-nested-list-iterator/"\},\
+    \{n:"Text Justification",d:"h",lc:"68",pt:"String simulation",url:"https://leetcode.com/problems/text-justification/"\},\
+    \{n:"N-Queens",d:"h",lc:"51",pt:"Backtracking",url:"https://leetcode.com/problems/n-queens/"\},\
+    \{n:"Palindrome Partitioning",d:"m",lc:"131",pt:"Backtracking + DP",url:"https://leetcode.com/problems/palindrome-partitioning/"\},\
+    \{n:"Find First and Last Position",d:"m",lc:"34",pt:"Binary search",url:"https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"\},\
+    \{n:"Pow(x,n)",d:"m",lc:"50",pt:"Fast exponentiation",url:"https://leetcode.com/problems/powx-n/"\},\
+    \{n:"React: Design a booking calendar component",d:"s",pt:"Full-stack coding"\},\
+    \{n:"SD: Design Hotel Booking System",d:"s",pt:"System design \'97 core question"\}]\}\
+\};\
+\
+const STAR=[\
+  \{q:"Tell me about a time you disagreed with your manager or tech lead.",cos:["Google L4","Meta E4"]\},\
+  \{q:"Describe your most impactful project. Give specific metrics \'97 latency, cost, revenue.",cos:["All companies"]\},\
+  \{q:"Tell me about a project with ambiguous or unclear requirements.",cos:["Airbnb","Uber"]\},\
+  \{q:"Tell me about a time you failed. What would you do differently?",cos:["Meta E4","Google L4"]\},\
+  \{q:"Describe a time you had to learn something new quickly to deliver on time.",cos:["Microsoft","Amazon LP"]\},\
+  \{q:"Tell me about a time you influenced a decision without direct authority.",cos:["Amazon LP","Meta"]\},\
+  \{q:"How did you simplify something technically complex for a non-technical audience?",cos:["Flipkart","Airbnb"]\},\
+  \{q:"Describe a time you made a critical decision with incomplete information.",cos:["Amazon LP","Google"]\}\
+];\
+\
+// STATE\
+let ST=JSON.parse(localStorage.getItem('prepos_v3')||'\{\}');\
+if(!ST.c)ST.c=\{\};if(!ST.days)ST.days=\{\};if(!ST.notes)ST.notes=\{\};\
+if(!ST.ints)ST.ints=[];if(!ST.mist)ST.mist=[];\
+if(!ST.sess)ST.sess=[];if(!ST.apps)ST.apps=[];if(!ST.rev)ST.rev=\{\};\
+function save()\{localStorage.setItem('prepos_v3',JSON.stringify(ST))\}\
+\
+let rp=null,tSecs=0,tRun=false,tIv=null,nId=null;\
+const SR=[1,3,7,14,30];\
+\
+// NAV\
+function go(id)\{\
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));\
+  document.querySelectorAll('.tnav,.si').forEach(b=>b.classList.remove('active'));\
+  document.getElementById('page-'+id).classList.add('active');\
+  document.querySelectorAll('.tnav,.si').forEach(b=>\{\
+    const oc=b.getAttribute('onclick')||'';\
+    if(oc.startsWith("go('"+id+"')")) b.classList.add('active');\
+  \});\
+  const fn=\{weeks:initW,trends:initTr,review:bldRev,ints:rndInts,mist:rndMist,time:rndSess,apps:rndKan,cos:()=>bldCo('google'),cheat:bldSTAR\};\
+  if(fn[id])fn[id]();\
+  updAll();\
+\}\
+function ow(n)\{\
+  if(!document.getElementById('weeks-root').innerHTML)initW();\
+  setTimeout(()=>\{\
+    const h=document.getElementById('wh-'+n),b=document.getElementById('wb-'+n);\
+    if(h&&b&&!h.classList.contains('open'))\{h.classList.add('open');b.classList.add('open');\}\
+    if(h)h.scrollIntoView(\{behavior:'smooth',block:'start'\});\
+  \},80);\
+\}\
+\
+// WEEKS\
+function initW()\{\
+  if(document.getElementById('weeks-root').innerHTML)return;\
+  document.getElementById('weeks-root').innerHTML=WEEKS.map(w=>\{\
+    const tot=w.days.reduce((s,d)=>s+d.probs.length,0);\
+    const don=w.days.reduce((s,d)=>s+d.probs.filter(p=>ST.c[p.id]).length,0);\
+    const pct=tot?Math.round(don/tot*100):0;\
+    const days=w.days.map(d=>`<div class="day-blk">\
+      <div class="day-hdr"><span class="day-pill">$\{d.label\}</span><span class="day-type" style="background:$\{d.tc\}22;color:$\{d.tc\}">$\{d.type\}</span>$\{d.pcount>0?`<span style="font-size:10px;background:var(--s3);color:var(--tx3);padding:2px 7px;border-radius:10px;font-family:var(--mono)">$\{d.probs.filter(p=>p.d!=='s').length\} DSA</span>`:''\}</div>\
+      $\{d.probs.map(p=>\{\
+        const on=ST.c[p.id]?'on':'';\
+        const dc=p.d==='e'?'de':p.d==='m'?'dm':p.d==='h'?'dh':'ds';\
+        const dl=p.d==='e'?'Easy':p.d==='m'?'Med':p.d==='h'?'Hard':'SD';\
+        const nt=ST.notes[p.id]||'';\
+        return `<div>\
+          <div class="pr" id="pr-$\{p.id\}">\
+            <button class="pchk $\{on\}" onclick="chk('$\{p.id\}')" aria-label="done"></button>\
+            <span class="pnm$\{on?' done':''\}" id="pn-$\{p.id\}" onclick="openN('$\{p.id\}','$\{p.n.replace(/'/g,"\\\\'")\}')">$\{p.n\}</span>\
+            $\{p.lc?`<span class="plc">#$\{p.lc\}</span>`:''\}\
+            <span class="diff $\{dc\}">$\{dl\}</span>\
+            $\{p.url?`<a href="$\{p.url\}" target="_blank" class="pl">Open \uc0\u8599 </a>`:''\}\
+            <button class="nb $\{nt?'has':''\}" id="nb-$\{p.id\}" onclick="openN('$\{p.id\}','$\{p.n.replace(/'/g,"\\\\'")\}')">\uc0\u9998 </button>\
+          </div>\
+          <div class="pv" id="pv-$\{p.id\}" style="$\{nt?'display:block':'display:none'\}">\uc0\u55357 \u56541  $\{nt.substring(0,120)\}$\{nt.length>120?'\'85':''\}</div>\
+        </div>`;\
+      \}).join('')\}\
+    </div>`).join('');\
+    return `<div class="wk" id="w-$\{w.id\}">\
+      <div class="wk-h" id="wh-$\{w.id\}" onclick="twk($\{w.id\})">\
+        <span class="wk-n">W$\{w.id\}</span>\
+        <span class="wk-ph" style="background:$\{w.pc\}22;color:$\{w.pc\}">$\{w.phase\}</span>\
+        <span class="wk-title">$\{w.title\}</span>\
+        <div class="wk-meta">\
+          <span class="wk-cnt" id="wc-$\{w.id\}">$\{don\}/$\{tot\}</span>\
+          <div class="wk-bar"><div class="wk-bf" id="wbf-$\{w.id\}" style="width:$\{pct\}%"></div></div>\
+          <span class="chev">\uc0\u9654 </span>\
+        </div>\
+      </div>\
+      <div class="wk-b" id="wb-$\{w.id\}">\
+        <div class="wk-tip">\uc0\u55357 \u56481  $\{w.tip\}</div>\
+        $\{days\}\
+      </div>\
+    </div>`;\
+  \}).join('');\
+\}\
+function twk(n)\{document.getElementById('wh-'+n).classList.toggle('open');document.getElementById('wb-'+n).classList.toggle('open');\}\
+\
+// CHECK + SPACED REP\
+function chk(id)\{\
+  const was=!!ST.c[id];\
+  if(!was)\{\
+    ST.c[id]=Date.now();\
+    const nd=new Date();nd.setDate(nd.getDate()+SR[0]);\
+    ST.rev[id]=\{next:nd.toDateString(),step:0\};\
+  \} else \{delete ST.c[id];delete ST.rev[id];\}\
+  save();\
+  const b=document.querySelector(`button.pchk[onclick="chk('$\{id\}')"]`);\
+  const nm=document.getElementById('pn-'+id);\
+  if(b)b.classList.toggle('on',!was);\
+  if(nm)nm.classList.toggle('done',!was);\
+  updBars();updAll();\
+  toast(!was?'\uc0\u10003  Solved! Review in 1 day.':'Unchecked.');\
+\}\
+\
+// NOTES\
+function openN(id,name)\{\
+  nId=id;\
+  document.getElementById('mo-title').textContent='Notes: '+name;\
+  document.getElementById('mo-ta').value=ST.notes[id]||'';\
+  document.getElementById('note-mo').classList.add('open');\
+  setTimeout(()=>document.getElementById('mo-ta').focus(),80);\
+\}\
+function closeN()\{document.getElementById('note-mo').classList.remove('open');nId=null;\}\
+function clearN()\{document.getElementById('mo-ta').value='';\}\
+function saveN()\{\
+  if(!nId)return;\
+  const v=document.getElementById('mo-ta').value.trim();\
+  if(v)ST.notes[nId]=v;else delete ST.notes[nId];\
+  save();\
+  const nb=document.getElementById('nb-'+nId);if(nb)nb.classList.toggle('has',!!v);\
+  const pv=document.getElementById('pv-'+nId);\
+  if(pv)\{if(v)\{pv.style.display='block';pv.textContent='\uc0\u55357 \u56541  '+v.substring(0,120)+(v.length>120?'\'85':'');\}else pv.style.display='none';\}\
+  closeN();toast('Note saved.');\
+\}\
+document.getElementById('note-mo').addEventListener('click',e=>\{if(e.target.id==='note-mo')closeN();\});\
+\
+// CALENDAR\
+function bldCal()\{\
+  const g=document.getElementById('cal-g');if(!g)return;\
+  g.innerHTML='';const now=new Date(),tod=now.toDateString();\
+  for(let i=125;i>=0;i--)\{\
+    const d=new Date(now);d.setDate(d.getDate()-i);\
+    const k=d.toDateString(),fut=d>now;\
+    const el=document.createElement('div');\
+    el.className='cd'+(ST.days[k]?' done':'')+(k===tod?' today':'')+(fut?' future':'');\
+    el.title=k;\
+    if(!fut)el.onclick=()=>\{ST.days[k]=!ST.days[k];save();el.classList.toggle('done',ST.days[k]);updAll();if(ST.days[k])toast('\uc0\u55357 \u56613  Day marked!');\};\
+    g.appendChild(el);\
+  \}\
+\}\
+function markToday()\{\
+  const k=new Date().toDateString();ST.days[k]=true;save();bldCal();updAll();\
+  const b=document.getElementById('mbtn'),s=document.getElementById('mbtn-s');\
+  if(b)\{b.classList.add('done');b.textContent='\uc0\u10003  Today is done!';\}\
+  if(s)s.textContent='Great work. See you tomorrow.';\
+  toast('\uc0\u55357 \u56613  Today done! Streak maintained!');\
+\}\
+\
+// RANDOMISER\
+function pickR()\{\
+  const all=[];WEEKS.forEach(w=>w.days.forEach(d=>d.probs.forEach(p=>\{if(p.d==='m'&&p.url&&p.url.includes('leetcode')&&!ST.c[p.id])all.push(p);\})));\
+  if(!all.length)\{document.getElementById('rp-n').textContent='\uc0\u55356 \u57225  All mediums solved!';document.getElementById('rp-m').textContent='Incredible. Re-solve your hardest ones.';rp=null;return;\}\
+  rp=all[Math.floor(Math.random()*all.length)];\
+  document.getElementById('rp-n').textContent=rp.n;\
+  document.getElementById('rp-m').textContent='LC #'+rp.lc+' \'b7 Medium';\
+\}\
+function openR()\{if(rp&&rp.url)window.open(rp.url,'_blank');\}\
+function solveR()\{if(rp)\{chk(rp.id);pickR();\}\}\
+\
+// REVIEW\
+function bldRev()\{\
+  const today=new Date().toDateString();\
+  const allP=\{\};WEEKS.forEach(w=>w.days.forEach(d=>d.probs.forEach(p=>\{allP[p.id]=p;\})));\
+  const due=Object.entries(ST.rev).filter(([id,r])=>new Date(r.next)<=new Date(today));\
+  const el=document.getElementById('review-root');if(!el)return;\
+  const cnt=due.length;\
+  ['rv-b','sb-rv'].forEach(i=>\{const e=document.getElementById(i);if(e)e.textContent=cnt;\});\
+  const sr=document.getElementById('s-rv');if(sr)sr.textContent=cnt;\
+  const ss=document.getElementById('s-rs');if(ss)ss.textContent=cnt===0?'All caught up':cnt+' need review';\
+  if(!cnt)\{el.innerHTML='<div class="empty"><div class="emi">\uc0\u9989 </div>No reviews due today!</div>';return;\}\
+  el.innerHTML=due.map(([id,r])=>\{\
+    const p=allP[id];if(!p)return '';\
+    const dc=p.d==='e'?'de':p.d==='m'?'dm':p.d==='h'?'dh':'ds';\
+    const dl=p.d==='e'?'Easy':p.d==='m'?'Med':p.d==='h'?'Hard':'SD';\
+    return `<div class="rv-card">\
+      <div style="flex:1"><div style="font-size:13px;font-weight:500">$\{p.n\}</div>\
+      <div style="font-size:11px;color:var(--tx3);margin-top:2px">Due: $\{r.next\} \'b7 Review $\{r.step+1\}/$\{SR.length\}</div></div>\
+      <span class="diff $\{dc\}">$\{dl\}</span>\
+      $\{p.url?`<a href="$\{p.url\}" target="_blank" class="pl">Open \uc0\u8599 </a>`:''\}\
+      <button class="rv-done" onclick="doneRev('$\{id\}')">Done \uc0\u10003 </button>\
+    </div>`;\
+  \}).join('');\
+\}\
+function doneRev(id)\{\
+  const r=ST.rev[id];if(!r)return;\
+  const step=Math.min(r.step+1,SR.length-1);\
+  const nd=new Date();nd.setDate(nd.getDate()+SR[step]);\
+  ST.rev[id]=\{next:nd.toDateString(),step\};\
+  save();bldRev();updAll();toast('Review done! Next in '+SR[step]+'d');\
+\}\
+\
+// TIMER\
+function fmt(s)\{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;return`$\{String(h).padStart(2,'0')\}:$\{String(m).padStart(2,'0')\}:$\{String(sc).padStart(2,'0')\}`;\}\
+function startT()\{\
+  if(tRun)return;tRun=true;\
+  document.getElementById('ts-btn').textContent='Running\'85';\
+  tIv=setInterval(()=>\{tSecs++;document.getElementById('tdis').textContent=fmt(tSecs);\},1000);\
+\}\
+function stopT()\{\
+  clearInterval(tIv);tRun=false;\
+  const m=Math.round(tSecs/60);\
+  if(m>=1)\{ST.sess.push(\{date:new Date().toDateString(),minutes:m\});save();rndSess();updAll();toast(m+'m logged!');\}\
+  resetT();\
+\}\
+function resetT()\{clearInterval(tIv);tRun=false;tSecs=0;document.getElementById('tdis').textContent='00:00:00';document.getElementById('ts-btn').textContent='Start';\}\
+function logM()\{\
+  const m=parseInt(document.getElementById('man-m').value)||0;\
+  if(m<1||m>480)\{toast('Enter 1-480 minutes');return;\}\
+  ST.sess.push(\{date:new Date().toDateString(),minutes:m\});save();rndSess();updAll();\
+  document.getElementById('man-m').value='';toast(m+'m logged!');\
+\}\
+function rndSess()\{\
+  const el=document.getElementById('sess-h');if(!el)return;\
+  const now=new Date(),wk=[];\
+  for(let i=6;i>=0;i--)\{const d=new Date(now);d.setDate(d.getDate()-i);wk.push(d.toDateString());\}\
+  const tot=\{\};ST.sess.forEach(s=>\{tot[s.date]=(tot[s.date]||0)+s.minutes;\});\
+  const wkm=wk.reduce((s,d)=>s+(tot[d]||0),0);\
+  const wt=document.getElementById('wk-tot');if(wt)wt.textContent=Math.floor(wkm/60)+'h '+(wkm%60)+'m';\
+  const mx=Math.max(...wk.map(d=>tot[d]||0),1);\
+  el.innerHTML=wk.map(d=>\{\
+    const m=tot[d]||0,pct=Math.round(m/mx*100);\
+    const lbl=new Date(d).toLocaleDateString('en-IN',\{weekday:'short',day:'numeric'\});\
+    return `<div class="sr"><span class="sd">$\{lbl\}</span><div class="sb"><div class="sb-f" style="width:$\{pct\}%"></div></div><span class="sm">$\{m\}m</span></div>`;\
+  \}).join('');\
+\}\
+\
+// INTERVIEWS\
+function addInt()\{\
+  const co=document.getElementById('i-co').value.trim();\
+  const role=document.getElementById('i-role').value.trim();\
+  const dt=document.getElementById('i-dt').value;\
+  const st=document.getElementById('i-st').value;\
+  if(!co||!dt)\{toast('Enter company and date');return;\}\
+  ST.ints.push(\{id:Date.now(),company:co,role,date:dt,status:st\});\
+  save();rndInts();updAll();\
+  document.getElementById('i-co').value='';document.getElementById('i-role').value='';document.getElementById('i-dt').value='';\
+  toast('Interview added!');\
+\}\
+function delInt(id)\{ST.ints=ST.ints.filter(i=>i.id!==id);save();rndInts();updAll();\}\
+function rndInts()\{\
+  const el=document.getElementById('int-root');if(!el)return;\
+  const sbi=document.getElementById('sb-int');if(sbi)sbi.textContent=ST.ints.length;\
+  if(!ST.ints.length)\{el.innerHTML='<div class="empty"><div class="emi">\uc0\u55357 \u56517 </div>No interviews added yet.</div>';return;\}\
+  const sorted=[...ST.ints].sort((a,b)=>new Date(a.date)-new Date(b.date));\
+  el.innerHTML=sorted.map(i=>\{\
+    const days=Math.ceil((new Date(i.date)-new Date())/(864e5));\
+    const color=days<3?'var(--red)':days<7?'var(--amb)':'var(--grn)';\
+    const dl=days<0?'Past':days===0?'Today!':days+'d';\
+    return `<div class="int-card">\
+      <div class="cd-box"><div class="cd-num" style="color:$\{color\}">$\{dl\}</div><div class="cd-lbl">$\{days<0?'passed':days===0?'today':'to go'\}</div></div>\
+      <div style="flex:1"><div style="font-size:13px;font-weight:600">$\{i.company\}</div><div style="font-size:12px;color:var(--tx2);margin-top:2px">$\{i.role||'Interview'\}</div><div style="font-size:11px;color:var(--tx3);font-family:var(--mono);margin-top:3px">$\{i.date\} \'b7 $\{i.status\}</div></div>\
+      <button class="del-btn" onclick="delInt($\{i.id\})">\'d7</button>\
+    </div>`;\
+  \}).join('');\
+\}\
+\
+// MISTAKES\
+function addMistake()\{\
+  const nm=document.getElementById('m-nm').value.trim();\
+  const pt=document.getElementById('m-pt').value.trim();\
+  const lc=document.getElementById('m-lc').value.trim();\
+  const ls=document.getElementById('m-ls').value.trim();\
+  if(!nm||!ls)\{toast('Enter problem name and lesson');return;\}\
+  ST.mist.unshift(\{id:Date.now(),nm,pt,lc,ls,date:new Date().toDateString()\});\
+  save();rndMist();updAll();\
+  ['m-nm','m-pt','m-lc','m-ls'].forEach(i=>\{document.getElementById(i).value='';\});\
+  toast('Mistake logged. Learning!');\
+\}\
+function delMist(id)\{ST.mist=ST.mist.filter(m=>m.id!==id);save();rndMist();updAll();\}\
+function rndMist()\{\
+  const el=document.getElementById('mist-root');if(!el)return;\
+  const sbm=document.getElementById('sb-mis');if(sbm)sbm.textContent=ST.mist.length;\
+  if(!ST.mist.length)\{el.innerHTML='<div class="empty"><div class="emi">\uc0\u55356 \u57263 </div>No mistakes logged yet. This is where real learning compounds.</div>';return;\}\
+  el.innerHTML=ST.mist.map(m=>`<div class="mk-row">\
+    <div class="mk-hdr">\
+      <div><div class="mk-nm">$\{m.nm\}$\{m.lc?` <span style="font-size:10px;font-family:var(--mono);color:var(--tx3)">#$\{m.lc\}</span>`:''\}</div>$\{m.pt?`<span class="mk-pat">$\{m.pt\}</span>`:''\}</div>\
+      <button onclick="delMist($\{m.id\})" style="background:none;border:none;color:var(--tx3);font-size:16px;cursor:pointer">\'d7</button>\
+    </div>\
+    <div class="mk-les">$\{m.ls\}</div>\
+    <div class="mk-dt">$\{m.date\}</div>\
+  </div>`).join('');\
+\}\
+\
+// KANBAN\
+const COLS=['Applied','Phone screen','Onsite','Offer'];\
+const CC=\{'Applied':'var(--tx3)','Phone screen':'var(--amb)','Onsite':'var(--ind)','Offer':'var(--grn)'\};\
+function addApp()\{\
+  const co=document.getElementById('a-co').value.trim();\
+  const role=document.getElementById('a-role').value.trim();\
+  const st=document.getElementById('a-st').value;\
+  const nt=document.getElementById('a-nt').value.trim();\
+  if(!co)\{toast('Enter company name');return;\}\
+  ST.apps.push(\{id:Date.now(),company:co,role,status:st,notes:nt,date:new Date().toDateString()\});\
+  save();rndKan();\
+  ['a-co','a-role','a-nt'].forEach(i=>\{document.getElementById(i).value='';\});\
+  toast('Application added!');\
+\}\
+function mvApp(id,dir)\{\
+  const app=ST.apps.find(a=>a.id===id);if(!app)return;\
+  const ni=COLS.indexOf(app.status)+dir;\
+  if(ni<0||ni>=COLS.length)return;\
+  app.status=COLS[ni];save();rndKan();\
+\}\
+function dlApp(id)\{ST.apps=ST.apps.filter(a=>a.id!==id);save();rndKan();\}\
+function rndKan()\{\
+  const el=document.getElementById('kanban');if(!el)return;\
+  el.innerHTML=COLS.map(col=>\{\
+    const cards=ST.apps.filter(a=>a.status===col);\
+    return `<div class="kan-col">\
+      <div class="kan-ct" style="color:$\{CC[col]\}">$\{col\}<span class="kan-cn">$\{cards.length\}</span></div>\
+      $\{cards.length?'':'<div style="font-size:12px;color:var(--tx3);text-align:center;padding:10px 0">Empty</div>'\}\
+      $\{cards.map(a=>`<div class="app-card">\
+        <div class="app-co">$\{a.company\}</div><div class="app-role">$\{a.role||'SDE2'\}</div>\
+        <div class="app-mt">$\{a.date\}$\{a.notes?'<br>'+a.notes:''\}</div>\
+        <div class="app-acts">\
+          <button class="app-btn" onclick="mvApp($\{a.id\},-1)">\uc0\u8592  Back</button>\
+          <button class="app-btn" onclick="mvApp($\{a.id\},1)">Next \uc0\u8594 </button>\
+          <button class="app-btn dl" onclick="dlApp($\{a.id\})">Remove</button>\
+        </div>\
+      </div>`).join('')\}\
+    </div>`;\
+  \}).join('');\
+\}\
+\
+// TRENDS\
+function initTr()\{\
+  const el=document.getElementById('trends-root');if(!el||el.innerHTML)return;\
+  el.innerHTML=TRENDS.map(t=>`<div class="tr-card">\
+    <div class="tr-hdr"><div class="tr-title">$\{t.title\}</div><span class="tr-hot" style="background:$\{t.hbg\};color:$\{t.hc\}">$\{t.hot\}</span></div>\
+    <div class="tr-desc">$\{t.desc\}</div>\
+    <div class="tr-tags">$\{t.tags.map(tg=>`<span class="tr-tag">$\{tg\}</span>`).join('')\}</div>\
+    <div class="tr-links">$\{t.links.map(l=>`<a href="$\{l.u\}" target="_blank" class="tl$\{l.h?' hot':''\}">$\{l.l\} \uc0\u8599 </a>`).join('')\}</div>\
+  </div>`).join('');\
+\}\
+\
+// CHEAT + STAR\
+function showCS(id,btn)\{\
+  document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));\
+  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));\
+  document.getElementById('cs-'+id).classList.add('active');\
+  if(btn)btn.classList.add('active');\
+\}\
+function bldSTAR()\{\
+  const el=document.getElementById('star-root');if(!el||el.innerHTML)return;\
+  el.innerHTML=STAR.map(q=>`<div class="mk-row" style="margin-bottom:6px">\
+    <div class="mk-les" style="font-size:13px;font-weight:500;color:var(--tx);margin-bottom:5px">$\{q.q\}</div>\
+    <div style="display:flex;gap:4px;flex-wrap:wrap">$\{q.cos.map(c=>`<span style="font-size:10px;padding:2px 7px;border-radius:3px;background:var(--indbg);border:1px solid var(--indbr);color:var(--ind)">$\{c\}</span>`).join('')\}</div>\
+  </div>`).join('');\
+\}\
+\
+// COMPANY\
+function bldCo(key)\{\
+  const c=COS[key];if(!c)return;\
+  document.querySelectorAll('.co-btn').forEach(b=>b.classList.toggle('active',b.dataset.co===key));\
+  const dc=d=>d==='e'?'de':d==='m'?'dm':d==='h'?'dh':'ds';\
+  const dl=d=>d==='e'?'Easy':d==='m'?'Med':d==='h'?'Hard':'SD';\
+  document.getElementById('co-content').innerHTML=`\
+    <div class="card" style="border-left:3px solid $\{c.color\};margin-bottom:9px">\
+      <div style="font-size:17px;font-weight:700;color:$\{c.color\};margin-bottom:3px">$\{c.name\}</div>\
+      <div style="font-size:12px;color:var(--tx2);margin-bottom:7px">$\{c.rounds\}</div>\
+      <div style="background:var(--ambbg);border:1px solid var(--ambbr);border-radius:var(--r3);padding:8px 11px;font-size:12px;color:var(--amb)">\uc0\u55357 \u56481  $\{c.tip\}</div>\
+    </div>\
+    <div class="card">\
+      <div class="card-t">Top questions at $\{c.name\} (2024-25)</div>\
+      $\{c.qs.map((q,i)=>`<div class="pr">\
+        <span style="font-size:11px;color:var(--tx3);font-family:var(--mono);min-width:20px">$\{i+1\}</span>\
+        <span style="flex:1;font-size:13px">$\{q.n\}$\{q.lc?` <span style="font-size:10px;color:var(--tx3);font-family:var(--mono)">#$\{q.lc\}</span>`:''\}</span>\
+        <span style="font-size:10px;padding:2px 5px;border-radius:3px;background:var(--s3);color:var(--tx2)">$\{q.pt\}</span>\
+        <span class="diff $\{dc(q.d)\}">$\{dl(q.d)\}</span>\
+        $\{q.url?`<a href="$\{q.url\}" target="_blank" class="pl">Open \uc0\u8599 </a>`:''\}\
+      </div>`).join('')\}\
+    </div>`;\
+\}\
+function bldCoTabs()\{\
+  const el=document.getElementById('co-tabs');if(!el)return;\
+  el.innerHTML=Object.entries(COS).map(([k,c])=>\
+    `<button class="co-btn$\{k==='google'?' active':''\}" data-co="$\{k\}" onclick="bldCo('$\{k\}')">$\{c.name\}</button>`\
+  ).join('');\
+\}\
+\
+// STATS\
+function calcStr()\{let s=0,d=new Date();while(s<126)\{if(ST.days[d.toDateString()])s++;else break;d.setDate(d.getDate()-1);\}return s;\}\
+function updBars()\{\
+  WEEKS.forEach(w=>\{\
+    const tot=w.days.reduce((s,d)=>s+d.probs.length,0);\
+    const don=w.days.reduce((s,d)=>s+d.probs.filter(p=>ST.c[p.id]).length,0);\
+    const pct=tot?Math.round(don/tot*100):0;\
+    const f=document.getElementById('wbf-'+w.id);if(f)f.style.width=pct+'%';\
+    const wc=document.getElementById('wc-'+w.id);if(wc)wc.textContent=don+'/'+tot;\
+    const sb=document.getElementById('sb'+w.id);if(sb)sb.style.width=pct+'%';\
+  \});\
+\}\
+function updAll()\{\
+  const str=calcStr(),sol=Object.keys(ST.c).length,days=Object.values(ST.days).filter(Boolean).length;\
+  const now=new Date(),wk=[];\
+  for(let i=6;i>=0;i--)\{const d=new Date(now);d.setDate(d.getDate()-i);wk.push(d.toDateString());\}\
+  const tot=\{\};ST.sess.forEach(s=>\{tot[s.date]=(tot[s.date]||0)+s.minutes;\});\
+  const wkm=wk.reduce((s,d)=>s+(tot[d]||0),0);\
+  const today=new Date().toDateString();\
+  const due=Object.values(ST.rev).filter(r=>new Date(r.next)<=new Date(today)).length;\
+\
+  const e=i=>document.getElementById(i);\
+  if(e('s-str'))e('s-str').textContent=str;\
+  if(e('s-ss'))e('s-ss').textContent=str>0?str+'d in a row':'Start today';\
+  if(e('s-sol'))e('s-sol').textContent=sol;\
+  if(e('s-day'))e('s-day').textContent=days;\
+  if(e('s-tim'))e('s-tim').textContent=Math.floor(wkm/60)+'h';\
+  if(e('s-ts'))e('s-ts').textContent=wkm+'m this week';\
+  if(e('s-rv'))e('s-rv').textContent=due;\
+  if(e('s-rs'))e('s-rs').textContent=due===0?'All caught up':due+' need review';\
+  if(e('tb-s'))e('tb-s').textContent=str+' day streak';\
+  const fl=e('flame');if(fl)fl.classList.toggle('pulse',!!ST.days[today]);\
+  const mb=e('mbtn'),ms=e('mbtn-s');\
+  const tod=ST.days[today];\
+  if(mb)\{mb.classList.toggle('done',!!tod);mb.textContent=tod?'\uc0\u10003  Today is done!':'\u10003  Mark today as done';\}\
+  if(ms)ms.textContent=tod?'Great work. See you tomorrow.':'Click after your daily session';\
+\
+  // phase bars\
+  const phases=[\
+    \{wids:[1,2,3,4],pp:'pp1',pt:'pt1'\},\
+    \{wids:[5,6,7,8],pp:'pp2',pt:'pt2'\},\
+    \{wids:[9,10,11,12,13],pp:'pp3',pt:'pt3'\},\
+    \{wids:[14,15],pp:'pp4',pt:'pt4'\}\
+  ];\
+  phases.forEach(ph=>\{\
+    const ws=WEEKS.filter(w=>ph.wids.includes(w.id));\
+    const t=ws.reduce((s,w)=>s+w.days.reduce((ss,d)=>ss+d.probs.length,0),0);\
+    const dn=ws.reduce((s,w)=>s+w.days.reduce((ss,d)=>ss+d.probs.filter(p=>ST.c[p.id]).length,0),0);\
+    const p=t?Math.round(dn/t*100):0;\
+    if(e(ph.pp))e(ph.pp).style.width=p+'%';if(e(ph.pt))e(ph.pt).textContent=p+'%';\
+  \});\
+  ['rv-b','sb-rv'].forEach(i=>\{const el=e(i);if(el)el.textContent=due;\});\
+  if(e('sb-int'))e('sb-int').textContent=ST.ints.length;\
+  if(e('sb-mis'))e('sb-mis').textContent=ST.mist.length;\
+  updBars();\
+\}\
+\
+// TOAST\
+function toast(msg)\{const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);\}\
+\
+// INIT\
+document.getElementById('tb-d').textContent=new Date().toLocaleDateString('en-IN',\{weekday:'short',day:'numeric',month:'short'\});\
+bldCal();bldCoTabs();pickR();updAll();\
+</script>\
+</body>\
+</html>}
